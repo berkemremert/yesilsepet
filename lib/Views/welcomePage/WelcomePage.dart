@@ -2,7 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:yesilsepet/ViewModels/welcomePage/CreateAccountViewModel.dart';
+import 'package:yesilsepet/Views/welcomePage/LogInPage.dart';
 import '../../ViewModels/WelcomePage/WelcomeViewModel.dart';
+import '../../ViewModels/welcomePage/LoginPageViewModel.dart';
+import 'CreateAccountPage.dart';
 import 'widgets/welcome_header.dart';
 import 'widgets/welcome_message.dart';
 import 'widgets/social_login_button.dart';
@@ -16,6 +20,30 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final viewModel = Provider.of<WelcomeViewModel>(context);
 
+    void createAccount() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ChangeNotifierProvider(
+            create: (_) => CreateAccountViewModel(),
+            child: const CreateAccountPage(),
+          ),
+        ),
+      );
+    }
+
+    void loginAccount(){
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ChangeNotifierProvider(
+            create: (_) => LoginPageViewModel(),
+            child: const LoginPage(),
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
       body: Stack(
         children: [
@@ -24,7 +52,7 @@ class WelcomePage extends StatelessWidget {
               children: [
                 Positioned.fill(
                   child: Image.asset(
-                    'assets/grocery.jpg',
+                    'assets/grocery.jpeg',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -60,11 +88,11 @@ class WelcomePage extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
                       CreateAccountButton(
-                        onPressed: viewModel.createAccount,
+                        onPressed: createAccount,
                       ),
                       const SizedBox(height: 16),
                       LoginLink(
-                        onPressed: viewModel.login,
+                        onPressed: loginAccount,
                       ),
                     ],
                   ),
