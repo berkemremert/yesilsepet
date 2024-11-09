@@ -25,7 +25,7 @@ dev_dependencies:
 
 flutter:
   assets:
-    - assets/grocery.jpg
+    - assets/grocery.jpeg
     - assets/default_profile_picture.webp
     - assets/google-logo.png
 
