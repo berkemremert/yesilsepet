@@ -11,6 +11,7 @@ class AppColors {
   static const Color offWhite = Color(0xFFF5F5F5); // Off white (light grayish white)
   static const Color warmWhite = Color(0xFFFFF8E1); // Warm white (yellowish)
   static const Color coolWhite = Color(0xFFE1F5FE); // Cool white (bluish)
+  static const Color greenishWhite = Color(0xFFf0f4eb);
 
   // Black tones
   static const Color pureBlack = Color(0xFF000000); // Pure black

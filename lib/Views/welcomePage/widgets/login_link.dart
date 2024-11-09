@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yesilsepet/Views/theme/appColors.dart';
 
 class LoginLink extends StatelessWidget {
   final VoidCallback onPressed;
@@ -9,9 +10,9 @@ class LoginLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
-      child: Text(
+      child: const Text(
         'Already have an account? Login',
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: AppColors.oliveGreen),
       ),
     );
   }

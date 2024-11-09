@@ -14,7 +14,7 @@ class SocialLoginButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           gradient: const LinearGradient(
-            colors: [AppColors.coolWhite, Colors.white, AppColors.coolWhite],
+            colors: [AppColors.greenishWhite, AppColors.greenishWhite],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -26,8 +26,8 @@ class SocialLoginButton extends StatelessWidget {
           child: InkWell(
             onTap: onPressed,
             borderRadius: BorderRadius.circular(12),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
+            child: const Padding(
+              padding: EdgeInsets.symmetric(vertical: 25),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -36,8 +36,8 @@ class SocialLoginButton extends StatelessWidget {
                     size: 24,
                     color: Colors.black,
                   ),
-                  const SizedBox(width: 16),
-                  const Text(
+                  SizedBox(width: 16),
+                  Text(
                     'Continue with Google',
                     style: TextStyle(
                       color: Colors.black,

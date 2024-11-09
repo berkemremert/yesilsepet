@@ -8,12 +8,12 @@ import 'widgets/welcome_message.dart';
 import 'widgets/social_login_button.dart';
 import 'widgets/create_account_button.dart';
 import 'widgets/login_link.dart';
+import 'package:yesilsepet/Views/theme/appColors.dart';
 
 
 class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Access WelcomeViewModel from Provider
     final viewModel = Provider.of<WelcomeViewModel>(context);
 
     return Scaffold(
@@ -45,13 +45,14 @@ class WelcomePage extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: AppColors.pureWhite,
                     borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       WelcomeHeader(),
+                      const SizedBox(height: 16,),
                       WelcomeMessage(),
                       const SizedBox(height: 32),
                       SocialLoginButton(
