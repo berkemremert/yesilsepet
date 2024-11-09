@@ -1,7 +1,13 @@
+import 'package:flutter/cupertino.dart';
+
 class RecipeModel {
   final String title;
   final String imagePath;
-  final List<String> badges;
+  final List<IconData> badges;
 
-  RecipeModel({required this.title, required this.imagePath, required this.badges});
+  RecipeModel({
+    required this.title,
+    required this.imagePath,
+    required this.badges,
+  });
 }

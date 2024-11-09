@@ -17,6 +17,7 @@ class AppColors {
   static const Color warmWhite = Color(0xFFFFF8E1); // Warm white (yellowish)
   static const Color coolWhite = Color(0xFFE1F5FE); // Cool white (bluish)
   static const Color greenishWhite = Color(0xFFf0f4eb);
+  static const Color orangishWhite = Color(0xFFffefdf);
 
   // Black tones
   static const Color black = Color(0xFF000000);

@@ -53,8 +53,8 @@ class MagicBoxButton extends StatelessWidget {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        AppColors.greenishWhite.withOpacity(0.6),
-                        AppColors.green.withOpacity(0.6),
+                        AppColors.peachOrange.withOpacity(0.6),
+                        AppColors.scarletOrange.withOpacity(0.6),
                       ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,

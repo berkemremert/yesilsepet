@@ -1,132 +1,96 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'dart:ui'; // For BackdropFilter
-
 import '../../../Models/recipe_model.dart';
 import '../../theme/appColors.dart';
 
 class RecipeCard extends StatelessWidget {
   final RecipeModel recipe;
+  final double cardWidth = 250;
+  final double cardHeight = 350;
 
-  RecipeCard({required this.recipe});
-
-  Widget _getBadgeIcon(String badge) {
-    IconData icon;
-    switch (badge) {
-      case 'Vegetarian':
-        icon = FontAwesomeIcons.leaf;
-        break;
-      case 'Gluten-Free':
-        icon = FontAwesomeIcons.wheatAwn;
-        break;
-      case 'Low Sugar':
-        icon = FontAwesomeIcons.heart;
-        break;
-      default:
-        icon = FontAwesomeIcons.circle;
-        break;
-    }
-    return CircleAvatar(
-      backgroundColor: AppColors.green,
-      radius: 16,
-      child: FaIcon(icon, color: Colors.white, size: 16),
-    );
-  }
+  RecipeCard({
+    required this.recipe,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(10.0),
+      padding: const EdgeInsets.all(6),
       child: Container(
-        width: 300,
-        height: 450,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-                  child: Container(
-                    color: AppColors.limeGreen.withOpacity(0.2),
-                  ),
-                ),
+        width: cardWidth,
+        height: cardHeight,
+        child: Card(
+          clipBehavior: Clip.antiAlias,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+          elevation: 5,
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: const LinearGradient(
+                colors: [AppColors.orange, AppColors.scarletOrange],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
               ),
+              borderRadius: BorderRadius.circular(15),
             ),
-            // Content inside the card
-            Column(
+            child: Column(
               children: [
-                Expanded(
-                  child: Stack(
-                    children: [
-                      // Recipe Image
-                      Positioned(
-                        bottom: 80,
-                        right: 20,
-                        child: Image.asset(
-                          recipe.imagePath,
-                          width: 150,
-                          height: 150,
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                    ],
+                Container(
+                  height: cardHeight * 0.6,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: NetworkImage(recipe.imagePath),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
                   ),
                 ),
-                // Title and Badges
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Title Text with spread shadow effect
                       Text(
                         recipe.title,
                         style: TextStyle(
-                          color: AppColors.pureWhite, // Text color changed to white for contrast
-                          fontSize: 30,
+                          fontSize: 32,
                           fontWeight: FontWeight.bold,
+                          color: Colors.white,
                           shadows: [
                             Shadow(
-                              color: AppColors.oliveGreen.withOpacity(0.6),
-                              offset: Offset(3, 3),
-                              blurRadius: 10,
-                            ),
-                            Shadow(
-                              color: AppColors.oliveGreen.withOpacity(0.3),
-                              offset: Offset(-3, -3),
-                              blurRadius: 20,
+                              blurRadius: 20.0,
+                              color: Colors.black.withOpacity(0.3),
+                              offset: Offset(2.0, 2.0),
                             ),
                           ],
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 60),
-                        child: Divider(
-                          color: AppColors.green,
-                          thickness: 1,
-                          height: 20,
-                        ),
-                      ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 16),
                       Row(
                         children: recipe.badges.map((badge) {
                           return Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: _getBadgeIcon(badge),
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Icon(
+                              badge,
+                              size: 24,
+                              color: Colors.white,
+                              shadows: [
+                                Shadow(
+                                  blurRadius: 20.0,
+                                  color: Colors.black.withOpacity(0.3),
+                                  offset: const Offset(2.0, 2.0),
+                                ),
+                              ],
+                            ),
                           );
                         }).toList(),
                       ),
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );

@@ -55,8 +55,8 @@ class OldRecipesButton extends StatelessWidget {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        AppColors.greenishWhite.withOpacity(0.6),
-                        AppColors.green.withOpacity(0.6),
+                        AppColors.orangishWhite.withOpacity(0.6),
+                        AppColors.orange.withOpacity(0.8),
                       ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
