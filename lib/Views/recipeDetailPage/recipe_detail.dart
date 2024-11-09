@@ -122,7 +122,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                       width: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          colors: [AppColors.limeGreen, AppColors.green],
+                          colors: [AppColors.coralOrange, AppColors.coralOrange],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                         ),

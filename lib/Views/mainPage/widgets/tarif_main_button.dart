@@ -22,8 +22,8 @@ class _TarifMainButtonState extends State<TarifMainButton> {
           shape: BoxShape.circle,
           gradient: const LinearGradient(
             colors: [
-              AppColors.limeGreen,
-              AppColors.green,
+              AppColors.coralOrange,
+              AppColors.scarletOrange,
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

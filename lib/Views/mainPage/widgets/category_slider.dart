@@ -22,45 +22,33 @@ class _CategorySliderState extends State<CategorySlider> {
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> reorderedCategories = [];
-    for (var i = 0; i < categories.length; i++) {
-      if (selectedIndices.contains(i)) {
-        reorderedCategories.add(categories[i]);
-      }
-    }
-    for (var i = 0; i < categories.length; i++) {
-      if (!selectedIndices.contains(i)) {
-        reorderedCategories.add(categories[i]);
-      }
-    }
-
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
         children: List.generate(
-          reorderedCategories.length,
+          categories.length,
               (index) => GestureDetector(
             onTap: () {
               setState(() {
-                int originalIndex = categories.indexOf(reorderedCategories[index]);
-                if (selectedIndices.contains(originalIndex)) {
-                  selectedIndices.remove(originalIndex);
+                // Toggle the selection status of the tapped category
+                if (selectedIndices.contains(index)) {
+                  selectedIndices.remove(index);
                 } else {
-                  selectedIndices.add(originalIndex);
+                  selectedIndices.add(index);
                 }
               });
             },
             child: AnimatedContainer(
-              duration: const Duration(milliseconds: 300),  // Smooth transition for changes
+              duration: const Duration(milliseconds: 300),
               margin: const EdgeInsets.symmetric(horizontal: 6.0),
               padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
-                color: selectedIndices.contains(categories.indexOf(reorderedCategories[index]))
-                    ? AppColors.green
+                color: selectedIndices.contains(index)
+                    ? AppColors.coralOrange
                     : AppColors.verylightGray,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
-                  if (selectedIndices.contains(categories.indexOf(reorderedCategories[index])))
+                  if (selectedIndices.contains(index))
                     const BoxShadow(
                       color: AppColors.lightGray,
                       spreadRadius: 1,
@@ -72,17 +60,17 @@ class _CategorySliderState extends State<CategorySlider> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
-                    reorderedCategories[index]['icon'],
+                    categories[index]['icon'],
                     size: 24,
-                    color: selectedIndices.contains(categories.indexOf(reorderedCategories[index]))
+                    color: selectedIndices.contains(index)
                         ? AppColors.pureWhite
                         : AppColors.black,
                   ),
                   const SizedBox(height: 6),
                   Text(
-                    reorderedCategories[index]['label'],
+                    categories[index]['label'],
                     style: TextStyle(
-                      color: selectedIndices.contains(categories.indexOf(reorderedCategories[index]))
+                      color: selectedIndices.contains(index)
                           ? AppColors.pureWhite
                           : AppColors.black,
                       fontWeight: FontWeight.bold,

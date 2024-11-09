@@ -52,7 +52,7 @@ class _MainPageState extends State<MainPage> {
                       crossAxisCount: 2,
                       crossAxisSpacing: 1,
                       mainAxisSpacing: 1,
-                      childAspectRatio: 0.6,
+                      childAspectRatio: 0.7,
                     ),
                     itemCount: 6,
                     itemBuilder: (context, index) {
