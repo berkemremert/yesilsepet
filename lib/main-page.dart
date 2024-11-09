@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Views/mainPage/widgets/tarif_blocks.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -25,7 +27,7 @@ class _MainPageState extends State<MainPage> {
               clipper: WavyClipper(),
               child: Container(
                 color: Colors.green,
-                height: greenBarHeight, // Green bar height
+                height: greenBarHeight,
               ),
             ),
           ),
@@ -85,6 +87,13 @@ class _MainPageState extends State<MainPage> {
                         contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                       ),
                     ),
+                  ),
+                  Container(height: 30),
+                  TarifCard(
+                    title: 'Deluxe Vegan Tarif',
+                    description: 'This is a premium vegan tarif designed for those who are looking for a healthy, yet flavorful alternative to traditional dishes. Packed with organic ingredients, and rich in plant-based proteins, this tarif ensures that your dietary needs are met without compromising taste. It’s an ideal choice for anyone who cares about sustainability and a balanced lifestyle.',
+                    isHealthy: true,
+                    isExpensive: true,
                   ),
                 ],
               )
