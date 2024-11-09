@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'Views/mainPage/widgets/tarif_blocks.dart';
+import 'widgets/tarif_blocks.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

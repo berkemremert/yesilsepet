@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:yesilsepet/main-page.dart';
+import 'package:yesilsepet/Views/mainPage/main-page.dart';
 import 'ViewModels/WelcomePage/WelcomeViewModel.dart';
+import 'ViewModels/mainPage/MainViewModel.dart';
 import 'Views/welcomePage/WelcomePage.dart';
 
 class DebugPage extends StatelessWidget {
@@ -33,7 +34,10 @@ class DebugPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => MainPage()
+                      builder: (context) => ChangeNotifierProvider(
+                        create: (_) => MainViewModel(),
+                        child: MainPage(),
+                      ),
                     ),
                   );
                 },

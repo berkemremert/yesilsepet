@@ -26,11 +26,8 @@ dev_dependencies:
 flutter:
   assets:
     - assets/grocery.jpg
-<<<<<<< Updated upstream
     - assets/default_profile_picture.webp
-=======
     - assets/google-logo.png
->>>>>>> Stashed changes
 
   uses-material-design: true
 

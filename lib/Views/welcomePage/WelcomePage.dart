@@ -13,7 +13,6 @@ import 'widgets/login_link.dart';
 class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Access WelcomeViewModel from Provider
     final viewModel = Provider.of<WelcomeViewModel>(context);
 
     return Scaffold(
