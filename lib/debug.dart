@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+<<<<<<< Updated upstream
 import 'package:provider/provider.dart';
 import 'ViewModels/WelcomePage/WelcomeViewModel.dart';
 import 'Views/welcomePage/WelcomePage.dart';
+=======
+import 'package:yesilsepet/main-page.dart';
+import 'package:yesilsepet/main.dart';
+>>>>>>> Stashed changes
 
 class DebugPage extends StatelessWidget {
   @override
@@ -10,6 +15,7 @@ class DebugPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Debug Page'),
       ),
+<<<<<<< Updated upstream
       body: Center(
         child: Column(
           children: [
@@ -35,6 +41,33 @@ class DebugPage extends StatelessWidget {
             ),
           ],
         )
+=======
+      body: Column(
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MainPage(),
+                ),
+              );
+            },
+            child: Text('Home'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyHomePage(title: "bok",),
+                ),
+              );
+            },
+            child: Text('Login'),
+          ),
+        ],
+>>>>>>> Stashed changes
       ),
     );
   }
