@@ -33,14 +33,12 @@ class MagicBoxButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           child: Stack(
             children: [
-              // Background Image Layer
-              Positioned.fill(
-                child: Image.asset(
-                  'assets/surprise.png',
-                  fit: BoxFit.cover,
-                ),
-              ),
-              // Blurry Effect Layer
+              // Positioned.fill(
+              //   child: Image.asset(
+              //     'assets/surprise.png',
+              //     fit: BoxFit.cover,
+              //   ),
+              // ),
               Positioned.fill(
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
