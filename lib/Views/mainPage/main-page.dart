@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:yesilsepet/Views/mainPage/widgets/main_header_elements.dart';
+import 'package:yesilsepet/Views/mainPage/widgets/main_header_wave.dart';
+import 'package:yesilsepet/Views/theme/appColors.dart';
 
 import 'widgets/tarif_blocks.dart';
 
@@ -15,61 +18,14 @@ class _MainPageState extends State<MainPage> {
     double greenBarHeight = 140.0;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.warmWhite,
       body: Stack(
         children: [
-          // Green wavy bar behind the content
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: ClipPath(
-              clipper: WavyClipper(),
-              child: Container(
-                color: Colors.green,
-                height: greenBarHeight,
-              ),
-            ),
-          ),
-          // The content on top
+          MainHeaderWave(greenBarHeight: greenBarHeight),
           Column(
             children: [
-              SizedBox(height: 30), // Space from the top
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        print("hahahah");
-                      },
-                      child: CircleAvatar(
-                        radius: 20,
-                        backgroundImage: AssetImage('assets/default_profile_picture.webp'),
-                      ),
-                    ),
-                    Expanded(
-                      child: Center(
-                        child: Text(
-                          'Yeşil Tarif',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.settings, color: Colors.white),
-                      onPressed: () {
-                        print('hahahahha');
-                      },
-                    ),
-                  ],
-                ),
-              ),
+              const SizedBox(height: 30),
+              MainHeaderElements(),
               Column(
                 children: [
                   Container(height: 30),
@@ -80,10 +36,10 @@ class _MainPageState extends State<MainPage> {
                         hintText: 'Tarif arat...',
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8.0),
-                          borderSide: BorderSide(color: Colors.grey),
+                          borderSide: BorderSide(color: AppColors.lightGray),
                         ),
-                        prefixIcon: Icon(Icons.filter_alt, color: Colors.black),
-                        suffixIcon: Icon(Icons.search, color: Colors.black),
+                        prefixIcon: Icon(Icons.filter_alt, color: AppColors.black),
+                        suffixIcon: Icon(Icons.search, color: AppColors.black),
                         contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                       ),
                     ),
@@ -102,24 +58,5 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
     );
-  }
-}
-
-class WavyClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-    path.lineTo(0, 0);
-    path.lineTo(0, size.height - 20);
-    path.quadraticBezierTo(size.width / 4, size.height, size.width / 2, size.height - 30);
-    path.quadraticBezierTo(3 * size.width / 4, size.height - 60, size.width, size.height - 30);
-    path.lineTo(size.width, 0);
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return false;
   }
 }
