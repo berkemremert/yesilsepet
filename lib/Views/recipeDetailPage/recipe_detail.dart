@@ -120,20 +120,12 @@ class _RecipeDetailState extends State<RecipeDetail> {
                     padding: const EdgeInsets.all(20.0),
                     child: Container(
                       width: double.infinity,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [AppColors.coralOrange, AppColors.coralOrange],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
                       child: ElevatedButton(
                         onPressed: () {
                           print('şlsdkflşsdkflşs');
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.transparent,
+                          backgroundColor: AppColors.coralOrange,
                           padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 30.0),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
@@ -143,6 +135,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                           'Pişirmeye Başla',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
+                            fontSize: 18,
                             color: AppColors.pureWhite,
                           ),
                         ),
