@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yesilsepet/Views/mainPage/widgets/category_slider.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/main_header_elements.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/main_header_wave.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/tarif_main_button.dart';
@@ -42,6 +43,7 @@ class _MainPageState extends State<MainPage> {
                   ),
                 ),
               ),
+              CategorySlider(),
               Expanded(
                 child: SingleChildScrollView(
                   child: GridView.builder(

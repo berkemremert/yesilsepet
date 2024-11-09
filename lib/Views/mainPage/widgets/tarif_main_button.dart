@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:yesilsepet/Views/theme/appColors.dart';
 
@@ -17,9 +16,10 @@ class _TarifMainButtonState extends State<TarifMainButton> {
         // TODO: IMPLEMENT
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 24),
+        width: 56,  // Set a fixed width
+        height: 56, // Set a fixed height to make the circle
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
+          shape: BoxShape.circle, // Makes the container a circle
           gradient: LinearGradient(
             colors: [
               AppColors.limeGreen,
@@ -28,13 +28,23 @@ class _TarifMainButtonState extends State<TarifMainButton> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              offset: Offset(2, 4),
+              blurRadius: 8,
+            ),
+          ], // Subtle shadow for depth
         ),
-        child: const Text(
-          'Yeni Tarif Oluştur',
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: AppColors.pureWhite,
+        child: Center(
+          child: Text(
+            '+',
+            style: TextStyle(
+              fontSize: 32, // Slightly smaller text size
+              fontWeight: FontWeight.bold,
+              color: AppColors.pureWhite,
+              letterSpacing: 1.2, // Slight spacing to make it more readable
+            ),
           ),
         ),
       ),
