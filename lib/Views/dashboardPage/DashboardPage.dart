@@ -3,6 +3,7 @@ import 'package:yesilsepet/Views/dashboardPage/widgets/create_recipe_button.dart
 import 'package:yesilsepet/Views/dashboardPage/widgets/magic_box_button.dart';
 import 'package:yesilsepet/Views/dashboardPage/widgets/old_recipes_button.dart';
 import 'package:yesilsepet/Views/dashboardPage/widgets/recipe_card.dart';
+import 'package:yesilsepet/Views/dashboardPage/widgets/search_bar.dart';
 import '../../ViewModels/DashboardPage/RecipeViewModel.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -47,6 +48,8 @@ class DashboardPage extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: 16.0),
+            SearchBarWidget(onSearchChanged: (String ) {  },),
             SizedBox(height: 16.0),
             SizedBox(
               height: 400,
