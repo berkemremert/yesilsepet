@@ -2,7 +2,6 @@ name: yesilsepet
 description: "A new Flutter project."
 publish_to: 'none'
 
-
 version: 1.0.0+1
 
 environment:
@@ -13,15 +12,12 @@ dependencies:
     sdk: flutter
   provider: ^6.1.2
   font_awesome_flutter: ^10.8.0
-
-
   cupertino_icons: ^1.0.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
-
 
 flutter:
   assets:
@@ -34,6 +30,14 @@ flutter:
     - assets/surprise.png
     - assets/images/apple.webp
     - assets/images/broccoli.png
+    - assets/images/yemek_photo.webp
+
+
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/font/Nunito-Bold.ttf
+        - asset: assets/font/Nunito-Italic.ttf
+        - asset: assets/font/Nunito-BoldItalic.ttf
 
   uses-material-design: true
-
