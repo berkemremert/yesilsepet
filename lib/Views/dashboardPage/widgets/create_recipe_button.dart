@@ -33,12 +33,12 @@ class CreateRecipeButton extends StatelessWidget {
           child: Stack(
             children: [
               // Background Image Layer
-              Positioned.fill(
-                child: Image.asset(
-                  'assets/dessert.jpg',
-                  fit: BoxFit.cover,
-                ),
-              ),
+              // Positioned.fill(
+              //   child: Image.asset(
+              //     'assets/dessert.jpg',
+              //     fit: BoxFit.cover,
+              //   ),
+              // ),
               // Blurry Effect Layer
               Positioned.fill(
                 child: BackdropFilter(
