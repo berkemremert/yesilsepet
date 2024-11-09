@@ -26,7 +26,7 @@ class _MainPageState extends State<MainPage> {
                   },
                   child: CircleAvatar(
                     radius: 20,
-                    backgroundImage: AssetImage('assets/profile.jpg'),
+                    backgroundImage: AssetImage('assets/default_profile_picture.webp'),
                   ),
                 ),
                 IconButton(

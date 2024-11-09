@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:yesilsepet/main-page.dart';
 import 'ViewModels/WelcomePage/WelcomeViewModel.dart';
 import 'Views/welcomePage/WelcomePage.dart';
 
@@ -29,7 +30,12 @@ class DebugPage extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  //   DENİZ BURAYAA YAZZZZ
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MainPage()
+                    ),
+                  );
                 },
                 child: Text('Go to Home Page'),
               ),
