@@ -5,8 +5,13 @@ class AppColors {
   static const Color limeGreen = Color(0xFF81b622);
   static const Color yellowGreen = Color(0xFFecf87f);
   static const Color green = Color(0xFF59981a);
-  static const Color black = Color(0xFF000000);
 
+  static const Color orange = Color(0xFFfbaa60);
+  static const Color peachOrange = Color(0xFFfbc490);
+  static const Color coralOrange = Color(0xFFf67b50);
+  static const Color scarletOrange = Color(0xFFa82810);
+
+  // White tones
   static const Color pureWhite = Color(0xFFFFFFFF); // Pure white
   static const Color offWhite = Color(0xFFF5F5F5); // Off white (light grayish white)
   static const Color warmWhite = Color(0xFFFFF8E1); // Warm white (yellowish)
@@ -14,7 +19,7 @@ class AppColors {
   static const Color greenishWhite = Color(0xFFf0f4eb);
 
   // Black tones
-  static const Color pureBlack = Color(0xFF000000); // Pure black
+  static const Color black = Color(0xFF000000);
   static const Color darkBlack = Color(0xFF212121); // Dark black (soft black)
   static const Color mediumBlack = Color(0xFF424242); // Medium black (grayish black)
   static const Color lightBlack = Color(0xFF616161); // Light black (light grayish black)
