@@ -28,6 +28,12 @@ flutter:
     - assets/grocery.jpeg
     - assets/default_profile_picture.webp
     - assets/google-logo.png
+    - assets/recipe.jpg
+    - assets/dessert.jpg
+    - assets/dessert2.jpg
+    - assets/surprise.png
+    - assets/images/apple.webp
+    - assets/images/broccoli.png
 
   uses-material-design: true
 

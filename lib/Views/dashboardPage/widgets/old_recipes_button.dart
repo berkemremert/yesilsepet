@@ -1,0 +1,109 @@
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
+
+import '../../theme/appColors.dart';
+
+class OldRecipesButton extends StatelessWidget {
+  final double height;
+
+  OldRecipesButton({
+    required this.height,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        width: double.infinity,
+        height: height,
+        margin: EdgeInsets.all(10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.shade300,
+              blurRadius: 5,
+              spreadRadius: 2,
+            ),
+          ],
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Stack(
+            children: [
+              // Background Image Layer
+              Positioned.fill(
+                child: Image.asset(
+                  'assets/dessert2.jpg',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              // Blurry Effect Layer
+              Positioned.fill(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+                  child: Container(
+                    color: Colors.white.withOpacity(0),
+                  ),
+                ),
+              ),
+              // Gradient Overlay
+              Positioned.fill(
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        AppColors.greenishWhite.withOpacity(0.6),
+                        AppColors.green.withOpacity(0.6),
+                      ],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
+                  ),
+                ),
+              ),
+              // Padding and Text Content
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        SizedBox(width: 10),
+                        Text(
+                          "Eski\nTariflerim",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            shadows: [
+                              Shadow(
+                                color: Colors.black.withOpacity(0.4),
+                                offset: Offset(2, 2),
+                                blurRadius: 16,
+                              ),
+                              Shadow(
+                                color: Colors.black.withOpacity(0.4),
+                                offset: Offset(0, 0),
+                                blurRadius: 120,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

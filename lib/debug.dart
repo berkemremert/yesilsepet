@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:yesilsepet/ViewModels/DashboardPage/RecipeViewModel.dart';
+import 'package:yesilsepet/Views/dashboardPage/DashboardPage.dart';
 import 'package:yesilsepet/Views/mainPage/main-page.dart';
 import 'ViewModels/WelcomePage/WelcomeViewModel.dart';
 import 'ViewModels/mainPage/MainViewModel.dart';
@@ -42,6 +44,20 @@ class DebugPage extends StatelessWidget {
                   );
                 },
                 child: Text('Go to Home Page'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ChangeNotifierProvider(
+                        create: (_) => RecipeViewModel(),
+                        child: DashboardPage(),
+                      ),
+                    ),
+                  );
+                },
+                child: Text('Go to Dashboard page'),
               ),
             ],
           )
