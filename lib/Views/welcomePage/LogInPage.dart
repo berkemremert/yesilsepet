@@ -2,13 +2,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yesilsepet/ViewModels/welcomePage/LoginPageViewModel.dart';
-import 'package:yesilsepet/Views/welcomePage/widgets/create_account_page_header.dart';
 import 'package:yesilsepet/Views/welcomePage/widgets/gradient_text_field.dart';
 import 'package:yesilsepet/Views/welcomePage/widgets/login_button.dart';
 import 'package:yesilsepet/Views/welcomePage/widgets/login_header.dart';
-import '../../ViewModels/welcomePage/CreateAccountViewModel.dart';
 import 'package:yesilsepet/Views/theme/appColors.dart';
-import 'widgets/create_account_button.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
