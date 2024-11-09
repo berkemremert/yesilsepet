@@ -32,7 +32,7 @@ class _MainPageState extends State<MainPage> {
               children: [
                 const SizedBox(height: 30),
                 MainHeaderElements(),
-                const SizedBox(height: 200),
+                const SizedBox(height: 160),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
                   child: TextField(
