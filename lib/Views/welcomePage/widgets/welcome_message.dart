@@ -9,7 +9,7 @@ class WelcomeMessage extends StatelessWidget {
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.',
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: Colors.white,
+          color: Colors.black54,
           fontSize: 16,
         ),
       ),

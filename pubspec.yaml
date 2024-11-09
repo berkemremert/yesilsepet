@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   provider: ^6.1.2
+  font_awesome_flutter: ^10.8.0
 
 
   cupertino_icons: ^1.0.6
@@ -25,7 +26,11 @@ dev_dependencies:
 flutter:
   assets:
     - assets/grocery.jpg
+<<<<<<< Updated upstream
     - assets/default_profile_picture.webp
+=======
+    - assets/google-logo.png
+>>>>>>> Stashed changes
 
   uses-material-design: true
 

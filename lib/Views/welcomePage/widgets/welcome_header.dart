@@ -8,7 +8,7 @@ class WelcomeHeader extends StatelessWidget {
       child: Text(
         'Welcome',
         style: TextStyle(
-          color: Colors.white,
+          color: Colors.black54,
           fontSize: 24,
           fontWeight: FontWeight.bold,
         ),
