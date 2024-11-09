@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yesilsepet/Views/theme/appColors.dart';
 
 class TarifCard extends StatelessWidget {
   final String title;
@@ -42,12 +43,12 @@ class TarifCard extends StatelessWidget {
             SizedBox(height: 10.0),
             GestureDetector(
               onTap: () {
-                print('lksfşlkşsdlfklşs');
+                print('lksfşlkşsdlfklşs'); // TODO: IMPLEMENT HERE
               },
               child: Text(
                 'Detaylar...',
                 style: TextStyle(
-                  color: Colors.green,
+                  color: AppColors.oliveGreen,
                   fontWeight: FontWeight.bold,
                   decoration: TextDecoration.underline,
                 ),
