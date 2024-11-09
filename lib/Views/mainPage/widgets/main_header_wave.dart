@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:yesilsepet/Views/theme/appColors.dart';
 
 class MainHeaderWave extends StatefulWidget {
-  final double greenBarHeight;
 
-  const MainHeaderWave({super.key, required this.greenBarHeight});
+  const MainHeaderWave({super.key});
 
   @override
   State<MainHeaderWave> createState() => _MainHeaderWaveState();
@@ -30,7 +29,7 @@ class _MainHeaderWaveState extends State<MainHeaderWave> {
               end: Alignment.bottomCenter,
             ),
           ),
-          height: widget.greenBarHeight,
+          height: 140.0,
         ),
       ),
     );

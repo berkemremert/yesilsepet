@@ -23,4 +23,5 @@ class AppColors {
   static const Color lightGray = Color(0xFFBDBDBD); // Light gray
   static const Color mediumGray = Color(0xFF757575); // Medium gray
   static const Color darkGray = Color(0xFF424242); // Dark gray
+  static Color? verylightGray = Colors.grey[200]; // Dark gray
 }

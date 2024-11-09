@@ -16,11 +16,11 @@ class _TarifMainButtonState extends State<TarifMainButton> {
         // TODO: IMPLEMENT
       },
       child: Container(
-        width: 56,  // Set a fixed width
-        height: 56, // Set a fixed height to make the circle
+        width: 56,
+        height: 56,
         decoration: BoxDecoration(
-          shape: BoxShape.circle, // Makes the container a circle
-          gradient: LinearGradient(
+          shape: BoxShape.circle,
+          gradient: const LinearGradient(
             colors: [
               AppColors.limeGreen,
               AppColors.green,
@@ -30,21 +30,16 @@ class _TarifMainButtonState extends State<TarifMainButton> {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              offset: Offset(2, 4),
+              color: AppColors.black.withOpacity(0.2),
+              offset: const Offset(2, 4),
               blurRadius: 8,
             ),
-          ], // Subtle shadow for depth
+          ],
         ),
-        child: Center(
-          child: Text(
-            '+',
-            style: TextStyle(
-              fontSize: 32, // Slightly smaller text size
-              fontWeight: FontWeight.bold,
-              color: AppColors.pureWhite,
-              letterSpacing: 1.2, // Slight spacing to make it more readable
-            ),
+        child: const Center(
+          child: Icon(
+              Icons.add,
+            color: AppColors.pureWhite,
           ),
         ),
       ),

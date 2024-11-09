@@ -16,13 +16,12 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    double greenBarHeight = 140.0;
 
     return Scaffold(
       backgroundColor: AppColors.offWhite,
       body: Stack(
         children: [
-          MainHeaderWave(greenBarHeight: greenBarHeight),
+          MainHeaderWave(),
           Column(
             children: [
               const SizedBox(height: 30),
@@ -48,14 +47,14 @@ class _MainPageState extends State<MainPage> {
                 child: SingleChildScrollView(
                   child: GridView.builder(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(), // Prevent scrolling within the GridView
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      crossAxisSpacing: 1, // Space between columns
-                      mainAxisSpacing: 1, // Space between rows
-                      childAspectRatio: 0.6, // Adjust the aspect ratio for card width
+                      crossAxisSpacing: 1,
+                      mainAxisSpacing: 1,
+                      childAspectRatio: 0.6,
                     ),
-                    itemCount: 6, // The number of TarifCards to display
+                    itemCount: 6,
                     itemBuilder: (context, index) {
                       return TarifCard(
                         title: 'Gourmet Plant-Based Tarif ${index + 1}',
@@ -70,7 +69,7 @@ class _MainPageState extends State<MainPage> {
             ],
           ),
 
-          Positioned(
+          const Positioned(
             bottom: 16,
             right: 16,
             child: TarifMainButton(),

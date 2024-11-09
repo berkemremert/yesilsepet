@@ -18,14 +18,14 @@ class _MainHeaderElementsState extends State<MainHeaderElements> {
         children: [
           GestureDetector(
             onTap: () {
-              print("hahahah");
+              print("hahahah"); // TODO: IMPLEMENT
             },
             child: CircleAvatar(
               radius: 20,
-              backgroundImage: AssetImage('assets/default_profile_picture.webp'),
+              backgroundImage: AssetImage('assets/default_profile_picture.webp'), // TODO: IMPLEMENT
             ),
           ),
-          Expanded(
+          const Expanded(
             child: Center(
               child: Text(
                 'Yeşil Tarif',
@@ -38,9 +38,9 @@ class _MainHeaderElementsState extends State<MainHeaderElements> {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.settings, color: Colors.white),
+            icon: Icon(Icons.settings, color: AppColors.pureWhite),
             onPressed: () {
-              print('hahahahha');
+              print('hahahahha'); // TODO: IMPLEMENT
             },
           ),
         ],

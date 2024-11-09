@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yesilsepet/Views/theme/appColors.dart';
 
 class CategorySlider extends StatefulWidget {
   const CategorySlider({super.key});
@@ -8,11 +9,10 @@ class CategorySlider extends StatefulWidget {
 }
 
 class _CategorySliderState extends State<CategorySlider> {
-  // Track the selected indices for categories
   List<int> selectedIndices = [];
 
   // List of categories and their icons
-  final List<Map<String, dynamic>> categories = [
+  final List<Map<String, dynamic>> categories = [ // TODO: Edit these accordingly
     {'label': 'Sustainable', 'icon': Icons.eco},
     {'label': 'High Calorie', 'icon': Icons.local_dining},
     {'label': 'Low Carb', 'icon': Icons.fastfood},
@@ -22,7 +22,6 @@ class _CategorySliderState extends State<CategorySlider> {
 
   @override
   Widget build(BuildContext context) {
-    // Reorder categories so selected ones come first
     List<Map<String, dynamic>> reorderedCategories = [];
     for (var i = 0; i < categories.length; i++) {
       if (selectedIndices.contains(i)) {
@@ -45,9 +44,9 @@ class _CategorySliderState extends State<CategorySlider> {
               setState(() {
                 int originalIndex = categories.indexOf(reorderedCategories[index]);
                 if (selectedIndices.contains(originalIndex)) {
-                  selectedIndices.remove(originalIndex); // Deselect
+                  selectedIndices.remove(originalIndex);
                 } else {
-                  selectedIndices.add(originalIndex); // Select
+                  selectedIndices.add(originalIndex);
                 }
               });
             },
@@ -57,15 +56,15 @@ class _CategorySliderState extends State<CategorySlider> {
               padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
                 color: selectedIndices.contains(categories.indexOf(reorderedCategories[index]))
-                    ? Colors.green
-                    : Colors.grey[200],  // Change color when selected
+                    ? AppColors.green
+                    : AppColors.verylightGray,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   if (selectedIndices.contains(categories.indexOf(reorderedCategories[index])))
-                    BoxShadow(
-                      color: Colors.green.withOpacity(0.5),
+                    const BoxShadow(
+                      color: AppColors.lightGray,
                       spreadRadius: 1,
-                      blurRadius: 4,  // Reduced blur radius
+                      blurRadius: 4,
                     ),
                 ],
               ),
@@ -76,16 +75,16 @@ class _CategorySliderState extends State<CategorySlider> {
                     reorderedCategories[index]['icon'],
                     size: 24,
                     color: selectedIndices.contains(categories.indexOf(reorderedCategories[index]))
-                        ? Colors.white
-                        : Colors.black,
+                        ? AppColors.pureWhite
+                        : AppColors.black,
                   ),
                   const SizedBox(height: 6),
                   Text(
                     reorderedCategories[index]['label'],
                     style: TextStyle(
                       color: selectedIndices.contains(categories.indexOf(reorderedCategories[index]))
-                          ? Colors.white
-                          : Colors.black,
+                          ? AppColors.pureWhite
+                          : AppColors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 12,
                     ),
