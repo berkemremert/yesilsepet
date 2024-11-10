@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:yesilsepet/ViewModels/DashboardPage/RecipeViewModel.dart';
 import 'package:yesilsepet/Views/dashboardPage/DashboardPage.dart';
 import 'package:yesilsepet/Views/mainPage/main-page.dart';
+import 'package:yesilsepet/Views/settingsScreen/accountPage.dart';
 import 'ViewModels/WelcomePage/WelcomeViewModel.dart';
 import 'ViewModels/mainPage/MainViewModel.dart';
 import 'Views/welcomePage/WelcomePage.dart';
@@ -70,6 +71,17 @@ class DebugPage extends StatelessWidget {
                   );
                 },
                 child: Text('Go to Address page'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AccountPage(),
+                    ),
+                  );
+                },
+                child: Text('Go to Account page'),
               ),
             ],
           )
