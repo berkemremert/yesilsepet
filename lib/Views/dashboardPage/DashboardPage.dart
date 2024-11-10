@@ -15,14 +15,6 @@ class DashboardPage extends StatelessWidget {
     final recipes = viewModel.getRecipes();
 
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            icon: Icon(Icons.filter_list),
-            onPressed: () {},
-          ),
-        ],
-      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(

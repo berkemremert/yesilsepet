@@ -18,58 +18,63 @@ class _DrawerProfileState extends State<DrawerProfile> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
+            DrawerHeader(
               decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [AppColors.green, AppColors.limeGreen]),
               ),
-              child: Text(
-                'Profile Menu',
-                style: TextStyle(color: AppColors.pureWhite, fontSize: 24),
+              child: Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: AppColors.limeGreen, width: 1),
+                    ),
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          image: AssetImage('assets/adam.jpeg'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 10,),
+                  Text("Berk Emre Mert"),
+                ],
               ),
             ),
             ListTile(
               leading: Icon(Icons.person),
-              title: Text('Profile'),
+              title: Text('About me'),
               onTap: () {
                 // TODO: Add profile navigation here
               },
             ),
             ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Profile'),
+              leading: Icon(Icons.shopping_basket),
+              title: Text('My Orders'),
               onTap: () {
                 // TODO: Add profile navigation here
               },
             ),
             ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Profile'),
+              leading: Icon(Icons.location_pin),
+              title: Text('My Address'),
               onTap: () {
                 // TODO: Add profile navigation here
               },
             ),
             ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Profile'),
+              leading: Icon(Icons.credit_card),
+              title: Text('Credit Cards'),
               onTap: () {
                 // TODO: Add profile navigation here
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Profile'),
-              onTap: () {
-                // Add profile navigation here
               },
             ),
             const Divider(color: AppColors.oliveGreen),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-              onTap: () {
-                // Add settings navigation here
-              },
-            ),
             ListTile(
               leading: Icon(Icons.emoji_food_beverage),
               title: Text('Hakkımızda'),
@@ -77,7 +82,13 @@ class _DrawerProfileState extends State<DrawerProfile> {
                 // Add settings navigation here
               },
             ),
-
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Sign Out'),
+              onTap: () {
+                // Add settings navigation here
+              },
+            ),
           ],
         ),
       ),

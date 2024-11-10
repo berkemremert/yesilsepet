@@ -6,6 +6,7 @@ import 'package:yesilsepet/Views/mainPage/main-page.dart';
 import 'ViewModels/WelcomePage/WelcomeViewModel.dart';
 import 'ViewModels/mainPage/MainViewModel.dart';
 import 'Views/welcomePage/WelcomePage.dart';
+import 'package:yesilsepet/Views/settingsScreen/addressPage.dart';
 
 class DebugPage extends StatelessWidget {
   @override
@@ -58,6 +59,17 @@ class DebugPage extends StatelessWidget {
                   );
                 },
                 child: Text('Go to Dashboard page'),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AddressPage(),
+                    ),
+                  );
+                },
+                child: Text('Go to Address page'),
               ),
             ],
           )
