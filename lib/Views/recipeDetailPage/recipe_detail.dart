@@ -21,20 +21,36 @@ class _RecipeDetailState extends State<RecipeDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColors.coralOrange,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: AppColors.offWhite), // Back button color
+          onPressed: () {
+            Navigator.of(context).pop(); // Go back when pressed
+          },
+        ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.share, color: AppColors.offWhite), // Share icon color
+            onPressed: () {
+              // TODO: Implement share functionality here
+              print('Share button pressed');
+            },
+          ),
+        ],
+      ),
       backgroundColor: AppColors.offWhite,
       body: Stack(
         children: [
-          MainHeaderWave(),
           Column(
             children: [
-              const SizedBox(height: 30),
               // MainHeaderElements(),
-              const SizedBox(height: 70),
+              // const SizedBox(height: 65),
               Column(
                 children: [
                   ClipRRect(
                     child: Image.asset(
-                      'assets/grocery.jpeg',
+                      'assets/images/yemek_photo.webp',
                       height: 250.0,
                       width: double.infinity,
                       fit: BoxFit.cover,
@@ -42,7 +58,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                    'Recipe Name',
+                    'Tarif İsmi',
                     style: TextStyle(
                       fontSize: 24.0,
                       fontWeight: FontWeight.bold,

@@ -13,28 +13,28 @@ class MainHeaderElements extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start, // Aligns all content to the left
         children: [
-          GestureDetector(
-            onTap: openDrawer,
-            child: Container(
-              padding: const EdgeInsets.all(8.0),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-              ),
-              child: CircleAvatar(
-                radius: 20,
-                backgroundImage: AssetImage('assets/default_profile_picture.webp'), // TODO: Implement actual profile image
-              ),
+          Text(
+            'Yeşil Tarif',
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: AppColors.offWhite,
             ),
           ),
-          const Expanded(
+          Expanded(
             child: Align(
               alignment: Alignment.centerRight, // Aligns text to the right
-              child: Text(
-                'Yeşil Tarif',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.offWhite,
+              child: GestureDetector(
+                onTap: openDrawer,
+                child: Container(
+                  padding: const EdgeInsets.all(8.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                  ),
+                  child: CircleAvatar(
+                    radius: 20,
+                    backgroundImage: AssetImage('assets/default_profile_picture.webp'),
+                  ),
                 ),
               ),
             ),
