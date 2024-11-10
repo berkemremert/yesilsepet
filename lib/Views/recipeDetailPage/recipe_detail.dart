@@ -28,7 +28,7 @@ class _RecipeDetailState extends State<RecipeDetail> {
           Column(
             children: [
               const SizedBox(height: 30),
-              MainHeaderElements(),
+              // MainHeaderElements(),
               const SizedBox(height: 70),
               Column(
                 children: [

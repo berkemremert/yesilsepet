@@ -1,47 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:yesilsepet/Views/theme/appColors.dart';
 
-class MainHeaderElements extends StatefulWidget {
-  const MainHeaderElements({super.key});
+class MainHeaderElements extends StatelessWidget {
+  final VoidCallback openDrawer;
 
-  @override
-  State<MainHeaderElements> createState() => _MainHeaderElementsState();
-}
+  const MainHeaderElements({super.key, required this.openDrawer});
 
-class _MainHeaderElementsState extends State<MainHeaderElements> {
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start, // Aligns all content to the left
         children: [
           GestureDetector(
-            onTap: () {
-              print("hahahah"); // TODO: IMPLEMENT
-            },
-            child: CircleAvatar(
-              radius: 20,
-              backgroundImage: AssetImage('assets/default_profile_picture.webp'), // TODO: IMPLEMENT
+            onTap: openDrawer,
+            child: Container(
+              padding: const EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+              ),
+              child: CircleAvatar(
+                radius: 20,
+                backgroundImage: AssetImage('assets/default_profile_picture.webp'), // TODO: Implement actual profile image
+              ),
             ),
           ),
           const Expanded(
-            child: Center(
+            child: Align(
+              alignment: Alignment.centerRight, // Aligns text to the right
               child: Text(
                 'Yeşil Tarif',
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.pureWhite,
+                  color: AppColors.offWhite,
                 ),
               ),
             ),
-          ),
-          IconButton(
-            icon: Icon(Icons.settings, color: AppColors.pureWhite),
-            onPressed: () {
-              print('hahahahha'); // TODO: IMPLEMENT
-            },
           ),
         ],
       ),

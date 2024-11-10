@@ -44,7 +44,7 @@ class TarifCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(16.0),
                 child: Image.asset(
-                  'assets/grocery.jpeg', // Placeholder image
+                  'assets/images/yemek_photo.webp', // Placeholder image
                   height: 120.0,
                   fit: BoxFit.cover,
                 ),

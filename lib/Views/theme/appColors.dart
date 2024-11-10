@@ -6,10 +6,11 @@ class AppColors {
   static const Color yellowGreen = Color(0xFFecf87f);
   static const Color green = Color(0xFF59981a);
 
-  static const Color orange = Color(0xFFfbaa60);
+  static const Color orange = Color(0xFFfbc490);
   static const Color peachOrange = Color(0xFFfbc490);
   static const Color coralOrange = Color(0xFFf67b50);
   static const Color scarletOrange = Color(0xFFa82810);
+
 
   // White tones
   static const Color pureWhite = Color(0xFFFFFFFF); // Pure white

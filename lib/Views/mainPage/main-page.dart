@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/category_slider.dart';
+import 'package:yesilsepet/Views/mainPage/widgets/drawer_profile.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/main_header_elements.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/main_header_wave.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/tarif_main_button.dart';
@@ -14,18 +15,25 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void openDrawer() {
+    _scaffoldKey.currentState?.openDrawer();
+  }
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: AppColors.offWhite,
+      drawer: const DrawerProfile(),
       body: Stack(
         children: [
           MainHeaderWave(),
           Column(
             children: [
               const SizedBox(height: 30),
-              MainHeaderElements(),
+              MainHeaderElements(openDrawer: openDrawer), // Pass openDrawer function
               const SizedBox(height: 40),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
@@ -68,7 +76,6 @@ class _MainPageState extends State<MainPage> {
               ),
             ],
           ),
-
           const Positioned(
             bottom: 16,
             right: 16,
