@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yesilsepet/ViewModels/createRecipe/CreateRecipeViewModel.dart';
+import 'package:yesilsepet/Views/createRecipePage/ingredientsPage.dart';
 import 'package:yesilsepet/Views/theme/appColors.dart';
 
 class TarifMainButton extends StatefulWidget {
@@ -13,7 +16,15 @@ class _TarifMainButtonState extends State<TarifMainButton> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // TODO: IMPLEMENT
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ChangeNotifierProvider(
+              create: (_) => CreateRecipeViewModel(),
+              child: IngredientsPage(),
+            ),
+          ),
+        );
       },
       child: Container(
         width: 56,
