@@ -23,7 +23,7 @@ class _TarifMainButtonState extends State<TarifMainButton> {
           gradient: const LinearGradient(
             colors: [
               AppColors.coralOrange,
-              AppColors.scarletOrange,
+              AppColors.coralOrangeDark,
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,

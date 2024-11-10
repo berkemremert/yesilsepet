@@ -20,7 +20,7 @@ class _DrawerProfileState extends State<DrawerProfile> {
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [AppColors.coralOrange, AppColors.coralOrange]),
+                gradient: LinearGradient(colors: [AppColors.green, AppColors.limeGreen]),
               ),
               child: Text(
                 'Profile Menu',

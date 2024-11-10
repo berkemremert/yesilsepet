@@ -22,8 +22,8 @@ class _MainHeaderWaveState extends State<MainHeaderWave> {
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                AppColors.green,
-                AppColors.limeGreen,
+                AppColors.coralOrangeDark,
+                AppColors.coralOrange,
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,

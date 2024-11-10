@@ -9,6 +9,7 @@ class AppColors {
   static const Color orange = Color(0xFFfbc490);
   static const Color peachOrange = Color(0xFFfbc490);
   static const Color coralOrange = Color(0xFFf67b50);
+  static const Color coralOrangeDark = Color(0xFFd65b30);
   static const Color scarletOrange = Color(0xFFa82810);
 
 

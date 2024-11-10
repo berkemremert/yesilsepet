@@ -33,7 +33,7 @@ class _MainPageState extends State<MainPage> {
           Column(
             children: [
               const SizedBox(height: 30),
-              MainHeaderElements(openDrawer: openDrawer), // Pass openDrawer function
+              MainHeaderElements(openDrawer: openDrawer),
               const SizedBox(height: 40),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),

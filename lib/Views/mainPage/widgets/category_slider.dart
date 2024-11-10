@@ -14,7 +14,7 @@ class _CategorySliderState extends State<CategorySlider> {
   // List of categories and their icons
   final List<Map<String, dynamic>> categories = [ // TODO: Edit these accordingly
     {'label': 'Sustainable', 'icon': Icons.eco},
-    {'label': 'High Calorie', 'icon': Icons.local_dining},
+    {'label': 'Doyurucu', 'icon': Icons.local_dining},
     {'label': 'Low Carb', 'icon': Icons.fastfood},
     {'label': 'Vegan', 'icon': Icons.energy_savings_leaf},
     {'label': 'Gluten-Free', 'icon': Icons.cancel_presentation},
@@ -44,7 +44,7 @@ class _CategorySliderState extends State<CategorySlider> {
               padding: const EdgeInsets.all(8.0),
               decoration: BoxDecoration(
                 color: selectedIndices.contains(index)
-                    ? AppColors.coralOrange
+                    ? AppColors.green
                     : AppColors.verylightGray,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
