@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yesilsepet/Views/dashboardPage/widgets/create_recipe_button.dart';
 import 'package:yesilsepet/Views/dashboardPage/widgets/magic_box_button.dart';
 import 'package:yesilsepet/Views/dashboardPage/widgets/old_recipes_button.dart';
+import 'package:yesilsepet/Views/dashboardPage/widgets/profile_picture_button.dart';
 import 'package:yesilsepet/Views/dashboardPage/widgets/recipe_card.dart';
 import 'package:yesilsepet/Views/dashboardPage/widgets/search_bar.dart';
 import '../../ViewModels/DashboardPage/RecipeViewModel.dart';
@@ -26,12 +27,17 @@ class DashboardPage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
+            ProfilePictureButton(height: 165),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  child: CreateRecipeButton(
-                    height: 350,
+                  child: Column(
+                    children: [
+                      CreateRecipeButton(
+                        height: 350,
+                      ),
+                    ],
                   ),
                 ),
                 Expanded(
@@ -49,7 +55,9 @@ class DashboardPage extends StatelessWidget {
               ],
             ),
             SizedBox(height: 16.0),
-            SearchBarWidget(onSearchChanged: (String ) {  },),
+            SearchBarWidget(
+              onSearchChanged: (String) {},
+            ),
             SizedBox(height: 16.0),
             SizedBox(
               height: 400,
@@ -57,7 +65,9 @@ class DashboardPage extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: recipes.length,
                 itemBuilder: (context, index) {
-                  return RecipeCard(recipe: recipes[index],);
+                  return RecipeCard(
+                    recipe: recipes[index],
+                  );
                 },
               ),
             ),
