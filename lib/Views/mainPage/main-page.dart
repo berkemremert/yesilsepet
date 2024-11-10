@@ -3,6 +3,7 @@ import 'package:yesilsepet/Views/mainPage/widgets/category_slider.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/drawer_profile.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/main_header_elements.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/main_header_wave.dart';
+import 'package:yesilsepet/Views/mainPage/widgets/search_myrecipes.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/tarif_main_button.dart';
 import 'package:yesilsepet/Views/theme/appColors.dart';
 import 'widgets/tarif_blocks.dart';
@@ -35,22 +36,8 @@ class _MainPageState extends State<MainPage> {
               const SizedBox(height: 30),
               MainHeaderElements(openDrawer: openDrawer),
               const SizedBox(height: 40),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Tariflerimde ara...',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(color: AppColors.lightGray),
-                    ),
-                    prefixIcon: Icon(Icons.filter_alt, color: AppColors.black),
-                    suffixIcon: Icon(Icons.search, color: AppColors.black),
-                    contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-                  ),
-                ),
-              ),
-              CategorySlider(),
+              const SearchMyrecipes(),
+              const CategorySlider(),
               Expanded(
                 child: SingleChildScrollView(
                   child: GridView.builder(

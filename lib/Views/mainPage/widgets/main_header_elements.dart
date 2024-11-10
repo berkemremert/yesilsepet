@@ -33,7 +33,7 @@ class MainHeaderElements extends StatelessWidget {
                   ),
                   child: CircleAvatar(
                     radius: 20,
-                    backgroundImage: AssetImage('assets/default_profile_picture.webp'),
+                    backgroundImage: AssetImage('assets/adam.jpeg'),
                   ),
                 ),
               ),
