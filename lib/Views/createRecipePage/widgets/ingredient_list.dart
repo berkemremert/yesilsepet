@@ -49,7 +49,8 @@ class IngredientList extends StatelessWidget {
                     radius: 24, // Adjust radius for circle size
                     child: ClipOval(
                       child: Image.asset(
-                        'assets/images/apple.webp',
+                        // 'assets/images/apple.webp',
+                        'assets/images/broccoli.png',
                         width: 36,
                         height: 36,
                         fit: BoxFit.cover,

@@ -24,7 +24,7 @@ class IngredientsPage extends StatelessWidget {
           ),
         ),
         backgroundColor: AppColors.offWhite,
-        body: const SingleChildScrollView(
+        body: SingleChildScrollView(
           child: Column(
             children: [
               ProgressBarSection(),
@@ -33,6 +33,26 @@ class IngredientsPage extends StatelessWidget {
               SizedBox(height: 10),
               IngredientList(),
               Divider(color: AppColors.oliveGreen),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.coralOrange,
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)
+                    )
+                  ),
+                  onPressed: (){
+                    // TODO: IMPLEMENT
+                  },
+                  child: Text(
+                      "İleri",
+                    style: TextStyle(
+                      color: AppColors.pureWhite,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18
+                    ),
+                  )
+              )
             ],
           ),
         ),
