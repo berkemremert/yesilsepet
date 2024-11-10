@@ -5,9 +5,13 @@ import '../../theme/appColors.dart';
 
 class ProfilePictureButton extends StatelessWidget {
   final double height;
+  final String name;
+  final String score;
 
   ProfilePictureButton({
     required this.height,
+    required this.name,
+    required this.score,
   });
 
   @override
@@ -36,7 +40,7 @@ class ProfilePictureButton extends StatelessWidget {
                 child: BackdropFilter(
                   filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
                   child: Container(
-                    color: Colors.white.withOpacity(0),
+                    color: AppColors.pureWhite.withOpacity(0),
                   ),
                 ),
               ),
@@ -45,8 +49,8 @@ class ProfilePictureButton extends StatelessWidget {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        AppColors.peachOrange.withOpacity(0.6),
-                        AppColors.scarletOrange.withOpacity(0.6),
+                        AppColors.orangishWhite.withOpacity(0.6),
+                        AppColors.pureWhite.withOpacity(0.6),
                       ],
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
@@ -68,46 +72,75 @@ class ProfilePictureButton extends StatelessWidget {
                       boxShadow: [
                         BoxShadow(
                           color: AppColors.black.withOpacity(0.2),
-                          blurRadius: 6,
+                          blurRadius: 120,
                           offset: Offset(0, 4),
                         ),
                       ],
                     ),
                     child: CircleAvatar(
                       radius: height * 0.25 - 2,
-                      backgroundImage: AssetImage('assets/default_profile_picture.webp'),
+                      backgroundImage: AssetImage('assets/adam.jpeg'),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(10),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+                        SizedBox(height: 33,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             SizedBox(width: 10),
-                            Text(
-                              "Sürpriz\nTarif",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                shadows: [
-                                  Shadow(
-                                    color: Colors.black.withOpacity(0.4),
-                                    offset: Offset(2, 2),
-                                    blurRadius: 16,
-                                  ),
-                                  Shadow(
-                                    color: Colors.black.withOpacity(0.4),
-                                    offset: Offset(0, 0),
-                                    blurRadius: 120,
-                                  ),
-                                ],
-                              ),
-                            ),
+                            Column(mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                              SizedBox(width: 120, child: Text(
+                                name,
+                                textAlign: TextAlign.left,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.darkGray,
+                                  shadows: [
+                                    Shadow(
+                                      color: Colors.black.withOpacity(0.2),
+                                      offset: Offset(2, 2),
+                                      blurRadius: 24,
+                                    ),
+                                    Shadow(
+                                      color: Colors.black.withOpacity(0.2),
+                                      offset: Offset(0, 0),
+                                      blurRadius: 120,
+                                    ),
+                                  ],
+                                ),
+                              ),),
+                              SizedBox(width: 120, height: 30, child: Text(
+                                score + " ☘️️",
+                                textAlign: TextAlign.left,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.lightGray,
+                                  shadows: [
+                                    Shadow(
+                                      color: Colors.black.withOpacity(0.2),
+                                      offset: Offset(2, 2),
+                                      blurRadius: 24,
+                                    ),
+                                    Shadow(
+                                      color: Colors.black.withOpacity(0.4),
+                                      offset: Offset(0, 0),
+                                      blurRadius: 120,
+                                    ),
+                                  ],
+                                ),
+                              ),),
+                            ],),
                           ],
                         ),
                       ],

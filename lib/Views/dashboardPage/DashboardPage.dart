@@ -27,7 +27,7 @@ class DashboardPage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
-            ProfilePictureButton(height: 165),
+            ProfilePictureButton(height: 165, name: "Berk Emre Mert", score: "200",),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

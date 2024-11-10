@@ -31,6 +31,7 @@ flutter:
     - assets/images/apple.webp
     - assets/images/broccoli.png
     - assets/images/yemek_photo.webp
+    - assets/adam.jpeg
 
 
   fonts:
