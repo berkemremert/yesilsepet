@@ -9,14 +9,14 @@ class DefaultLabelWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(0),
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
         decoration: BoxDecoration(
           color: AppColors.verylightGray,
         ),
         child: Text(
           'DEFAULT',
           style: TextStyle(
-            fontSize: 10,
+            fontSize: 7,
             fontWeight: FontWeight.bold,
             color: AppColors.oliveGreen,
           ),

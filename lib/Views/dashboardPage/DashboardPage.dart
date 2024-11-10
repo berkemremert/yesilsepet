@@ -15,14 +15,11 @@ class DashboardPage extends StatelessWidget {
     final recipes = viewModel.getRecipes();
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-
-      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
+            SizedBox(height: 40,),
             ProfilePictureButton(height: 165, name: "Berk Emre Mert", score: "200",),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
