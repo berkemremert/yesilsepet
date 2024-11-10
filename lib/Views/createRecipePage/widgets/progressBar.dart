@@ -21,30 +21,32 @@ class ProgressBarSection extends StatelessWidget {
             builder: (context, value, child) {
               return LinearProgressIndicator(
                 value: value,
+                minHeight: 8,
+                borderRadius: BorderRadius.circular(10),
                 backgroundColor: AppColors.lightGray,
-                color: AppColors.green,
+                color: AppColors.scarletOrange,
               );
             },
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            IconButton(
-              icon: Icon(Icons.remove_circle_outline, color: AppColors.green),
-              onPressed: () {},
-            ),
-            const SizedBox(width: 20),
-            IconButton(
-              icon: Icon(Icons.add_circle_outline, color: AppColors.green),
-              onPressed: () {
-                // Retrieve the view model and print the current malzemeler list
-                final viewModel = Provider.of<CreateRecipeViewModel>(context, listen: false);
-                print(viewModel.malzemeler);
-              },
-            ),
-          ],
-        ),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     IconButton(
+        //       icon: Icon(Icons.remove_circle_outline, color: AppColors.green),
+        //       onPressed: () {},
+        //     ),
+        //     const SizedBox(width: 20),
+        //     IconButton(
+        //       icon: Icon(Icons.add_circle_outline, color: AppColors.green),
+        //       onPressed: () {
+        //         // Retrieve the view model and print the current malzemeler list
+        //         final viewModel = Provider.of<CreateRecipeViewModel>(context, listen: false);
+        //         print(viewModel.malzemeler);
+        //       },
+        //     ),
+        //   ],
+        // ),
       ],
     );
   }
