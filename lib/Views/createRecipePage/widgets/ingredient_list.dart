@@ -11,7 +11,7 @@ class IngredientList extends StatelessWidget {
     final viewModel = Provider.of<CreateRecipeViewModel>(context);
 
     return Container(
-      height: 350,
+      height: 450,
       width: 370,
       child: ListView.builder(
         itemCount: viewModel.malzemeler.length,
@@ -41,7 +41,7 @@ class IngredientList extends StatelessWidget {
               child: Card(
                 elevation: 2,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(5), // Less curvature
+                  borderRadius: BorderRadius.circular(5),
                 ),
                 child: ListTile(
                   leading: CircleAvatar(
@@ -49,8 +49,8 @@ class IngredientList extends StatelessWidget {
                     radius: 24, // Adjust radius for circle size
                     child: ClipOval(
                       child: Image.asset(
-                        // 'assets/images/apple.webp',
-                        'assets/images/broccoli.png',
+                        'assets/images/apple.webp',
+                        // 'assets/images/broccoli.png',
                         width: 36,
                         height: 36,
                         fit: BoxFit.cover,

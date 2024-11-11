@@ -11,6 +11,14 @@ class NewIngredientSearchBar extends StatelessWidget {
     final viewModel = Provider.of<CreateRecipeViewModel>(context, listen: false);
     final TextEditingController _textFieldController = TextEditingController();
 
+    void addIngredient() {
+      final text = _textFieldController.text;
+      if (text.isNotEmpty) {
+        _textFieldController.clear();
+        viewModel.addMalzeme(text);
+      }
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Row(
@@ -23,6 +31,7 @@ class NewIngredientSearchBar extends StatelessWidget {
               ),
               child: TextField(
                 controller: _textFieldController,
+                onSubmitted: (_) => addIngredient(),
                 decoration: InputDecoration(
                   hintText: 'Elinizdeki malzemeleri giriniz...',
                   border: OutlineInputBorder(
@@ -36,11 +45,7 @@ class NewIngredientSearchBar extends StatelessWidget {
           ),
           const SizedBox(width: 10),
           ElevatedButton(
-            onPressed: () {
-              final text = _textFieldController.text;
-              _textFieldController.clear();
-              viewModel.addMalzeme(text);
-            },
+            onPressed: addIngredient,
             style: ElevatedButton.styleFrom(
               backgroundColor: AppColors.coralOrange,
               elevation: 5,
