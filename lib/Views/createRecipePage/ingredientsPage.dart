@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:yesilsepet/Views/createRecipePage/filterPage.dart';
 import 'package:yesilsepet/Views/createRecipePage/widgets/ingredient_list.dart';
 import 'package:yesilsepet/Views/createRecipePage/widgets/new_ingredients_search_bar.dart';
 import 'package:yesilsepet/Views/createRecipePage/widgets/progressBar.dart';
@@ -59,28 +60,18 @@ class _IngredientsPageState extends State<IngredientsPage> {
           ),
         ),
         backgroundColor: AppColors.offWhite,
-        body: SingleChildScrollView(  // Wrapping the body in SingleChildScrollView
+        body: SingleChildScrollView(
           child: Column(
             children: [
               ProgressBarSection(currentStep: _currentStep),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.7, // Adjusting the height to fit the keyboard
+                height: MediaQuery.of(context).size.height * 0.7,
                 child: PageView(
                   controller: _pageController,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   children: [
-                    // Step 1: Ingredients
-                    Column(
-                      children: [
-                        SizedBox(height: 10),
-                        NewIngredientSearchBar(),
-                        SizedBox(height: 10),
-                        IngredientList(),
-                      ],
-                    ),
-                    // Step 2: Instructions
-                    Center(child: Text("Add Recipe Instructions")),
-                    // Step 3: Final Review
+                    firstPage(),
+                    secondPage(),
                     Center(child: Text("Review and Finish")),
                   ],
                 ),
@@ -120,7 +111,7 @@ class _IngredientsPageState extends State<IngredientsPage> {
                       ),
                       onPressed: _nextStep,
                       child: Text(
-                        _currentStep == 2 ? "Oluştur" : "İleri", // Change text on last step
+                        _currentStep == 2 ? "Oluştur" : "İleri",
                         style: const TextStyle(
                           color: AppColors.pureWhite,
                           fontWeight: FontWeight.bold,
@@ -136,5 +127,18 @@ class _IngredientsPageState extends State<IngredientsPage> {
         ),
       ),
     );
+  }
+  Widget firstPage(){
+    return const Column(
+      children: [
+        SizedBox(height: 10),
+        NewIngredientSearchBar(),
+        SizedBox(height: 10),
+        IngredientList(),
+      ],
+    );
+  }
+  Widget secondPage() {
+    return FilterPage();
   }
 }

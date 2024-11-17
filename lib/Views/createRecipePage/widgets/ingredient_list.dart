@@ -26,10 +26,10 @@ class IngredientList extends StatelessWidget {
               child: ListTile(
                 leading: CircleAvatar(
                   backgroundColor: AppColors.yellowGreen,
-                  radius: 24, // Adjust radius for circle size
+                  radius: 24,
                   child: ClipOval(
                     child: Image.asset(
-                      'assets/images/apple.webp', // Adjust the image as needed
+                      'assets/images/apple.webp', // TODO: Adjust the image as needed
                       width: 36,
                       height: 36,
                       fit: BoxFit.cover,
