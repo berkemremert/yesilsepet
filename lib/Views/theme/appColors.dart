@@ -13,6 +13,10 @@ class AppColors {
   static const Color scarletOrange = Color(0xFFa82810);
 
 
+
+  static const Color red = Colors.red;
+
+
   // White tones
   static const Color pureWhite = Color(0xFFFFFFFF); // Pure white
   static const Color offWhite = Color(0xFFF5F5F5); // Off white (light grayish white)

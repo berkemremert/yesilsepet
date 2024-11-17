@@ -43,7 +43,14 @@ class _IngredientsPageState extends State<IngredientsPage> {
       create: (_) => CreateRecipeViewModel(),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: AppColors.green,
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[AppColors.green, AppColors.limeGreen]),
+            ),
+          ),
           title: const Text(
             "Tarif Oluştur!",
             style: TextStyle(
@@ -52,77 +59,80 @@ class _IngredientsPageState extends State<IngredientsPage> {
           ),
         ),
         backgroundColor: AppColors.offWhite,
-        body: Column(
-          children: [
-            ProgressBarSection(currentStep: _currentStep),
-            Expanded(
-              child: PageView(
-                controller: _pageController,
-                physics: NeverScrollableScrollPhysics(),
-                children: [
-                  // Step 1: Ingredients
-                  Column(
-                    children: [
-                      SizedBox(height: 10),
-                      NewIngredientSearchBar(),
-                      SizedBox(height: 10),
-                      IngredientList(),
-                    ],
-                  ),
-                  // Step 2: Instructions
-                  Center(child: Text("Add Recipe Instructions")),
-                  // Step 3: Final Review
-                  Center(child: Text("Review and Finish")),
-                ],
+        body: SingleChildScrollView(  // Wrapping the body in SingleChildScrollView
+          child: Column(
+            children: [
+              ProgressBarSection(currentStep: _currentStep),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.7, // Adjusting the height to fit the keyboard
+                child: PageView(
+                  controller: _pageController,
+                  physics: NeverScrollableScrollPhysics(),
+                  children: [
+                    // Step 1: Ingredients
+                    Column(
+                      children: [
+                        SizedBox(height: 10),
+                        NewIngredientSearchBar(),
+                        SizedBox(height: 10),
+                        IngredientList(),
+                      ],
+                    ),
+                    // Step 2: Instructions
+                    Center(child: Text("Add Recipe Instructions")),
+                    // Step 3: Final Review
+                    Center(child: Text("Review and Finish")),
+                  ],
+                ),
               ),
-            ),
-            Divider(color: AppColors.oliveGreen),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  if (_currentStep > 0)
+              Divider(color: AppColors.oliveGreen),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    if (_currentStep > 0)
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.verylightGray, // Red color on steps 2 and 3
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        onPressed: _previousStep,
+                        child: const Text(
+                          "Geri",
+                          style: TextStyle(
+                            color: AppColors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.verylightGray, // Red color on steps 2 and 3
+                        backgroundColor: AppColors.coralOrange,
                         elevation: 5,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      onPressed: _previousStep,
+                      onPressed: _nextStep,
                       child: Text(
-                        "Geri",
-                        style: TextStyle(
-                          color: AppColors.black,
+                        _currentStep == 2 ? "Oluştur" : "İleri", // Change text on last step
+                        style: const TextStyle(
+                          color: AppColors.pureWhite,
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
                         ),
                       ),
                     ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.coralOrange,
-                      elevation: 5,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    onPressed: _nextStep,
-                    child: Text(
-                      _currentStep == 2 ? "Oluştur" : "İleri", // Change text on last step
-                      style: TextStyle(
-                        color: AppColors.pureWhite,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
