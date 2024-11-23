@@ -11,9 +11,9 @@ class MainHeaderElements extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start, // Aligns all content to the left
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Yeşil Tarif',
             style: TextStyle(
               fontSize: 24,
@@ -23,7 +23,7 @@ class MainHeaderElements extends StatelessWidget {
           ),
           Expanded(
             child: Align(
-              alignment: Alignment.centerRight, // Aligns text to the right
+              alignment: Alignment.centerRight,
               child: GestureDetector(
                 onTap: openDrawer,
                 child: Container(

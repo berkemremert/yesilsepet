@@ -14,7 +14,6 @@ import 'widgets/create_account_button.dart';
 import 'widgets/login_link.dart';
 import 'package:yesilsepet/Views/theme/appColors.dart';
 
-
 class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -32,7 +31,7 @@ class WelcomePage extends StatelessWidget {
       );
     }
 
-    void loginAccount(){
+    void loginAccount() {
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -65,6 +64,29 @@ class WelcomePage extends StatelessWidget {
               ],
             ),
           ),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 100,
+            child: Center(
+              child: Text(
+                'Yeşil Sepet',
+                style: TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.pureWhite,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 10,
+                      color: Colors.black.withOpacity(0.5),
+                      offset: Offset(0, 3),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
           Positioned.fill(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -80,7 +102,7 @@ class WelcomePage extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       WelcomeHeader(),
-                      const SizedBox(height: 16,),
+                      const SizedBox(height: 16),
                       WelcomeMessage(),
                       const SizedBox(height: 32),
                       SocialLoginButton(
