@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MainViewModel extends ChangeNotifier {
-  //functions here
+
+  void openDrawer(GlobalKey<ScaffoldState> scaffoldKey) {
+    scaffoldKey.currentState?.openDrawer();
+  }
 }

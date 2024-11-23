@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yesilsepet/ViewModels/mainPage/MainViewModel.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/category_slider.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/drawer_profile.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/main_header_elements.dart';
@@ -17,9 +18,10 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final MainViewModel viewModel = MainViewModel();
 
   void openDrawer() {
-    _scaffoldKey.currentState?.openDrawer();
+    viewModel.openDrawer(_scaffoldKey);
   }
 
   @override
@@ -30,7 +32,7 @@ class _MainPageState extends State<MainPage> {
       drawer: const DrawerProfile(),
       body: Stack(
         children: [
-          MainHeaderWave(),
+          const MainHeaderWave(),
           Column(
             children: [
               const SizedBox(height: 30),
