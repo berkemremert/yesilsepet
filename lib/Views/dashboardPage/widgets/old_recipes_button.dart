@@ -1,6 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yesilsepet/ViewModels/mainPage/MainViewModel.dart';
+import 'package:yesilsepet/Views/mainPage/main-page.dart';
 
 import '../../theme/appColors.dart';
 
@@ -14,7 +17,17 @@ class OldRecipesButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ChangeNotifierProvider(
+              create: (_) => MainViewModel(),
+              child: MainPage(),
+            ),
+          ),
+        );
+      },
       child: Container(
         width: double.infinity,
         height: height,
