@@ -4,9 +4,13 @@ import 'package:yesilsepet/Views/welcomePage/WelcomePage.dart';
 import 'ViewModels/welcomePage/WelcomeViewModel.dart';
 import 'Views/theme/appColors.dart';
 import 'debug.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {

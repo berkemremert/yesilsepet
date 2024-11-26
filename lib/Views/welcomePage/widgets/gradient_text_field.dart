@@ -4,9 +4,13 @@ import 'package:yesilsepet/Views/theme/appColors.dart';
 class GradientTextField extends StatelessWidget {
   final String label;
   final TextInputType keyboardType;
+  final TextEditingController controller;
 
-  GradientTextField(
-      {required this.label, this.keyboardType = TextInputType.text});
+  GradientTextField({
+    required this.label,
+    required this.controller,
+    this.keyboardType = TextInputType.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +27,7 @@ class GradientTextField extends StatelessWidget {
           borderRadius: BorderRadius.circular(8),
         ),
         child: TextField(
+          controller: controller,
           decoration: InputDecoration(
             labelText: label,
             border: InputBorder.none,
