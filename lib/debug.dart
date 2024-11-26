@@ -53,7 +53,7 @@ class DebugPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) => ChangeNotifierProvider(
-                        create: (_) => RecipeViewModel(),
+                        create: (_) => DashboardViewModel(),
                         child: DashboardPage(),
                       ),
                     ),

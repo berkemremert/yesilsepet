@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "859560334690",
+    "project_id": "suup-5bad6",
+    "storage_bucket": "suup-5bad6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:859560334690:android:7eb56e3278d5a4f2d7c83b",
+        "android_client_info": {
+          "package_name": "com.example.yesilsepet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM6xE8J2njCkc9rSQ9eUysVFCM8C3gXVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -8,7 +8,7 @@ import 'package:yesilsepet/Views/dashboardPage/widgets/search_bar.dart';
 import '../../ViewModels/DashboardPage/RecipeViewModel.dart';
 
 class DashboardPage extends StatelessWidget {
-  final RecipeViewModel viewModel = RecipeViewModel();
+  final DashboardViewModel viewModel = DashboardViewModel();
 
   @override
   Widget build(BuildContext context) {

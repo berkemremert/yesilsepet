@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:yesilsepet/Models/recipe_model.dart';
 
-class RecipeViewModel extends ChangeNotifier{
+class DashboardViewModel extends ChangeNotifier{
   List<RecipeModel> getRecipes() {
     return [
       RecipeModel(
