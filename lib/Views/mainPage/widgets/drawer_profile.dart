@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../settingsScreen/accountPage.dart';
 import '../../settingsScreen/addressPage.dart';
 import '../../theme/appColors.dart';
 
@@ -54,8 +55,12 @@ class _DrawerProfileState extends State<DrawerProfile> {
               leading: Icon(Icons.person),
               title: Text('About me'),
               onTap: () {
-                // TODO: Add profile navigation here
-              },
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AccountPage(),
+                  ),
+                );              },
             ),
             ListTile(
               leading: Icon(Icons.shopping_basket),
