@@ -3,7 +3,7 @@ import 'package:yesilsepet/ViewModels/mainPage/MainViewModel.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/category_slider.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/drawer_profile.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/main_header_elements.dart';
-import 'package:yesilsepet/Views/mainPage/widgets/main_header_wave.dart';
+import 'package:yesilsepet/Views/helper_widgets/main_header_wave.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/search_myrecipes.dart';
 import 'package:yesilsepet/Views/mainPage/widgets/tarif_main_button.dart';
 import 'package:yesilsepet/Views/theme/appColors.dart';
@@ -32,7 +32,10 @@ class _MainPageState extends State<MainPage> {
       drawer: const DrawerProfile(),
       body: Stack(
         children: [
-          const MainHeaderWave(),
+          const MainHeaderWave(
+            startColor: AppColors.coralOrangeDark,
+            endColor: AppColors.coralOrange,
+          ),
           Column(
             children: [
               const SizedBox(height: 30),

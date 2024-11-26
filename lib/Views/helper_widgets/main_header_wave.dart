@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:yesilsepet/Views/theme/appColors.dart';
 
 class MainHeaderWave extends StatefulWidget {
+  final Color startColor;
+  final Color endColor;
 
-  const MainHeaderWave({super.key});
+  const MainHeaderWave({
+    super.key,
+    required this.startColor,
+    required this.endColor,
+  });
 
   @override
   State<MainHeaderWave> createState() => _MainHeaderWaveState();
@@ -19,11 +24,11 @@ class _MainHeaderWaveState extends State<MainHeaderWave> {
       child: ClipPath(
         clipper: WavyClipper(),
         child: Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
-                AppColors.coralOrangeDark,
-                AppColors.coralOrange,
+                widget.startColor,
+                widget.endColor,
               ],
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,

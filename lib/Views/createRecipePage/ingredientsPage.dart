@@ -6,11 +6,17 @@ import 'package:yesilsepet/Views/createRecipePage/widgets/FilterPages/secondPage
 import 'package:yesilsepet/Views/createRecipePage/widgets/progressButtons.dart';
 import 'package:yesilsepet/Views/createRecipePage/widgets/progressBar.dart';
 import 'package:yesilsepet/Views/theme/appColors.dart';
-import 'package:yesilsepet/Views/theme/customAppBar.dart';
 import '../../ViewModels/createRecipe/CreateRecipeViewModel.dart';
+import '../mainPage/widgets/main_header_elements.dart';
+import '../helper_widgets/main_header_wave.dart';
 
 class IngredientsPage extends StatelessWidget {
-  const IngredientsPage({super.key});
+  IngredientsPage({super.key});
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void openDrawer() {
+    _scaffoldKey.currentState?.openDrawer();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,24 +28,36 @@ class IngredientsPage extends StatelessWidget {
       child: Consumer<CreateRecipeViewModel>(
         builder: (context, viewModel, child) {
           return Scaffold(
-            appBar: CustomAppBar(),
             backgroundColor: AppColors.offWhite,
-            body: Column(
+            body: Stack(
               children: [
-                ProgressBarSection(currentStep: viewModel.currentStep),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.7,
-                  child: PageView(
-                    controller: viewModel.pageController,
-                    physics: const NeverScrollableScrollPhysics(),
+                const MainHeaderWave(
+                  startColor: AppColors.green,
+                  endColor: AppColors.limeGreen,
+                ),
+                Positioned.fill(
+                  top: 30,
+                  child: Column(
                     children: [
-                      FirstPage(),
-                      SecondPage(),
-                      LastPage(recipes),
+                      MainHeaderElements(openDrawer: openDrawer),
+                      SizedBox(height: 30),
+                      ProgressBarSection(currentStep: viewModel.currentStep),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.7,
+                        child: PageView(
+                          controller: viewModel.pageController,
+                          physics: const NeverScrollableScrollPhysics(),
+                          children: [
+                            FirstPage(),
+                            SecondPage(),
+                            LastPage(recipes),
+                          ],
+                        ),
+                      ),
+                      ProgressButtons(viewModel),
                     ],
                   ),
                 ),
-                ProgressButtons(viewModel),
               ],
             ),
           );

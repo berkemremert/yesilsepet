@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../mainPage/widgets/main_header_elements.dart';
-import '../mainPage/widgets/main_header_wave.dart';
+import '../helper_widgets/main_header_wave.dart';
 import '../theme/appColors.dart';
 
 class RecipeDetail extends StatefulWidget {
