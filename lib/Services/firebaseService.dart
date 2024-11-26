@@ -106,6 +106,48 @@ class FirebaseService {
     return 'No user is logged in.';
   }
 
+  Future<Map<String, String?>> getUserProfileData() async {
+    User? currentUser = _auth.currentUser;
+    if (currentUser != null) {
+      try {
+        DocumentSnapshot userSnapshot = await _firestore.collection('users').doc(currentUser.uid).get();
+
+        if (userSnapshot.exists) {
+          var userData = userSnapshot.data() as Map<String, dynamic>;
+
+          String name = userData['name'] ?? 'No Name';
+          String surname = userData['surname'] ?? 'No Surname';
+          String? profilePictureUrl = userData['profilePictureUrl'];  // This could be null if not set
+
+          return {
+            'name': name,
+            'surname': surname,
+            'profilePictureUrl': profilePictureUrl,
+          };
+        } else {
+          return {
+            'name': 'No Name',
+            'surname': 'No Surname',
+            'profilePictureUrl': null,
+          };
+        }
+      } catch (e) {
+        print("Error fetching user profile data: $e");
+        return {
+          'name': 'No Name',
+          'surname': 'No Surname',
+          'profilePictureUrl': null,
+        };
+      }
+    } else {
+      return {
+        'name': 'No Name',
+        'surname': 'No Surname',
+        'profilePictureUrl': null,
+      };
+    }
+  }
+
   Future<void> signOut() async {
     await _auth.signOut();
   }

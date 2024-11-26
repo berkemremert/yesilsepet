@@ -21,10 +21,9 @@ class DashboardPage extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           children: [
-            SizedBox(height: 40,),
-            // Use FutureBuilder to get current user's name
-            FutureBuilder<String?>(
-              future: _firebaseService.getUserName(), // Get user's name
+            SizedBox(height: 40),
+            FutureBuilder<Map<String, String?>>(
+              future: _firebaseService.getUserProfileData(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Center(child: CircularProgressIndicator());
@@ -33,11 +32,13 @@ class DashboardPage extends StatelessWidget {
                 } else if (!snapshot.hasData || snapshot.data == null) {
                   return Text('No user data available');
                 } else {
-                  // Pass the user's name to the ProfilePictureButton
+                  final userData = snapshot.data!;
                   return ProfilePictureButton(
                     height: 165,
-                    name: snapshot.data!, // Display the user's name
-                    score: "200", // Replace with actual score if needed
+                    name: userData['name'] ?? 'No Name',
+                    surname: userData['surname'] ?? 'No Surname',
+                    profilePictureUrl: userData['profilePictureUrl'],
+                    score: userData['score'] ?? "200",
                   );
                 }
               },
