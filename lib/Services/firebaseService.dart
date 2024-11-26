@@ -32,10 +32,8 @@ class FirebaseService {
 
       return null;
     } on FirebaseAuthException catch (e) {
-      // Handle Firebase-specific errors
       return e.message;
     } catch (e) {
-      // Handle other errors
       return 'An error occurred. Please try again.';
     }
   }
@@ -49,7 +47,6 @@ class FirebaseService {
         email: email,
         password: password,
       );
-
       return null;
     } on FirebaseAuthException catch (e) {
       return e.message;
@@ -58,7 +55,62 @@ class FirebaseService {
     }
   }
 
+  Future<Map<String, dynamic>?> getUser() async {
+    User? currentUser = _auth.currentUser;
+    if (currentUser != null) {
+      try {
+        DocumentSnapshot userSnapshot =
+        await _firestore.collection('users').doc(currentUser.uid).get();
+        return userSnapshot.data() as Map<String, dynamic>?;
+      } catch (e) {
+        return null;
+      }
+    }
+    return null;
+  }
+
+  Future<String?> getUserName() async {
+    User? currentUser = _auth.currentUser;
+    if (currentUser != null) {
+      try {
+        DocumentSnapshot userSnapshot = await _firestore.collection('users').doc(currentUser.uid).get();
+        var userData = userSnapshot.data() as Map<String, dynamic>?;
+        return userData?['name'];
+      } catch (e) {
+        print("Error fetching user data: $e");
+        return null;
+      }
+    }
+    return null;
+  }
+
+  Future<String?> updateUser({
+    required String name,
+    required String surname,
+    required String phoneNumber,
+  }) async {
+    User? currentUser = _auth.currentUser;
+    if (currentUser != null) {
+      try {
+        await _firestore.collection('users').doc(currentUser.uid).update({
+          'name': name,
+          'surname': surname,
+          'phoneNumber': phoneNumber,
+          'updatedAt': FieldValue.serverTimestamp(),
+        });
+        return null;
+      } catch (e) {
+        return 'An error occurred while updating user information.';
+      }
+    }
+    return 'No user is logged in.';
+  }
+
   Future<void> signOut() async {
     await _auth.signOut();
+  }
+
+  Future<User?> getCurrentUser() async {
+    return _auth.currentUser;
   }
 }

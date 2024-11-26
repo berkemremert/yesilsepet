@@ -7,6 +7,7 @@ import 'package:yesilsepet/Views/theme/appColors.dart';
 import 'package:yesilsepet/Views/welcomePage/widgets/gradient_text_field.dart';
 import 'package:yesilsepet/Views/welcomePage/widgets/login_button.dart';
 import 'package:yesilsepet/Views/welcomePage/widgets/login_header.dart';
+import 'package:yesilsepet/Views/dashboardPage/dashboardPage.dart';  // Import your DashboardPage
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -15,7 +16,6 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final viewModel = Provider.of<LoginPageViewModel>(context);
 
-    // Controllers for the text fields
     final usernameController = TextEditingController();
     final passwordController = TextEditingController();
 
@@ -68,12 +68,23 @@ class LoginPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 32),
                       LoginButton(
-                        onPressed: () {
-                          // Call login method from viewModel
-                          viewModel.login(
+                        onPressed: () async {
+                          String? error = await viewModel.login(
                             username: usernameController.text,
                             password: passwordController.text,
                           );
+
+                          if (error == null) {
+                            await viewModel.saveUserInfo();  // Save user info to Firebase
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => DashboardPage()),  // Navigate to DashboardPage
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('Error: $error')),
+                            );
+                          }
                         },
                       ),
                     ],

@@ -6,9 +6,11 @@ import 'package:yesilsepet/Views/dashboardPage/widgets/profile_picture_button.da
 import 'package:yesilsepet/Views/dashboardPage/widgets/recipe_card.dart';
 import 'package:yesilsepet/Views/dashboardPage/widgets/search_bar.dart';
 import '../../ViewModels/DashboardPage/RecipeViewModel.dart';
+import '../../Services/FirebaseService.dart';
 
 class DashboardPage extends StatelessWidget {
   final DashboardViewModel viewModel = DashboardViewModel();
+  final FirebaseService _firebaseService = FirebaseService();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,26 @@ class DashboardPage extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 40,),
-            ProfilePictureButton(height: 165, name: "Berk Emre Mert", score: "200",),
+            // Use FutureBuilder to get current user's name
+            FutureBuilder<String?>(
+              future: _firebaseService.getUserName(), // Get user's name
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(child: CircularProgressIndicator());
+                } else if (snapshot.hasError) {
+                  return Text('Error: ${snapshot.error}');
+                } else if (!snapshot.hasData || snapshot.data == null) {
+                  return Text('No user data available');
+                } else {
+                  // Pass the user's name to the ProfilePictureButton
+                  return ProfilePictureButton(
+                    height: 165,
+                    name: snapshot.data!, // Display the user's name
+                    score: "200", // Replace with actual score if needed
+                  );
+                }
+              },
+            ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
