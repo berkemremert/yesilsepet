@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:yesilsepet/Views/theme/appColors.dart';
+
+import '../../ViewModels/createRecipe/CreateRecipeViewModel.dart';
 
 class FilterPage extends StatefulWidget {
   const FilterPage({Key? key}) : super(key: key);
@@ -9,23 +12,11 @@ class FilterPage extends StatefulWidget {
 }
 
 class _FilterPageState extends State<FilterPage> {
-  // Avoided food filters
-  bool isVegan = false;
-  bool isVegetarian = false;
-  bool isHalal = false;
-
-  // Diet preferences
-  bool isLowCalorie = false;
-  bool isHighProtein = false;
-  bool isLowCarb = false;
-
-  // Meal preparation
-  bool isQuickRecipe = false;
-  bool isEasyRecipe = false;
-  bool isGourmetMeal = false;
-
   @override
   Widget build(BuildContext context) {
+    // Access the ViewModel
+    final viewModel = Provider.of<CreateRecipeViewModel>(context);
+
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -34,57 +25,66 @@ class _FilterPageState extends State<FilterPage> {
           children: [
             buildSectionTitle("Avoided Food"),
             buildFilterCard([
-              buildSwitchTile("Vegan", isVegan, (value) {
+              buildSwitchTile("Vegan", viewModel.isVegan, (value) {
                 setState(() {
-                  isVegan = value;
+                  viewModel.isVegan = value;
+                  viewModel.setPreference("Vegan", value);
                 });
               }),
-              buildSwitchTile("Vegetarian", isVegetarian, (value) {
+              buildSwitchTile("Vegetarian", viewModel.isVegetarian, (value) {
                 setState(() {
-                  isVegetarian = value;
+                  viewModel.isVegetarian = value;
+                  viewModel.setPreference("Vegetarian", value);
                 });
               }),
-              buildSwitchTile("Halal", isHalal, (value) {
+              buildSwitchTile("Halal", viewModel.isHalal, (value) {
                 setState(() {
-                  isHalal = value;
+                  viewModel.isHalal = value;
+                  viewModel.setPreference("Halal", value);
                 });
               }),
             ]),
             const SizedBox(height: 16),
             buildSectionTitle("Diet Preferences"),
             buildFilterCard([
-              buildSwitchTile("Low Calorie", isLowCalorie, (value) {
+              buildSwitchTile("Low Calorie", viewModel.isLowCalorie, (value) {
                 setState(() {
-                  isLowCalorie = value;
+                  viewModel.isLowCalorie = value;
+                  viewModel.setPreference("Low Calorie", value);
                 });
               }),
-              buildSwitchTile("High Protein", isHighProtein, (value) {
+              buildSwitchTile("High Protein", viewModel.isHighProtein, (value) {
                 setState(() {
-                  isHighProtein = value;
+                  viewModel.isHighProtein = value;
+                  viewModel.setPreference("High Protein", value);
                 });
               }),
-              buildSwitchTile("Low Carb", isLowCarb, (value) {
+              buildSwitchTile("Low Carb", viewModel.isLowCarb, (value) {
                 setState(() {
-                  isLowCarb = value;
+                  viewModel.isLowCarb = value;
+                  viewModel.setPreference("Low Carb", value);
                 });
               }),
             ]),
             const SizedBox(height: 16),
             buildSectionTitle("Meal Preparation"),
             buildFilterCard([
-              buildSwitchTile("Quick Recipe", isQuickRecipe, (value) {
+              buildSwitchTile("Quick Recipe", viewModel.isQuickRecipe, (value) {
                 setState(() {
-                  isQuickRecipe = value;
+                  viewModel.isQuickRecipe = value;
+                  viewModel.setPreference("Quick Recipe", value);
                 });
               }),
-              buildSwitchTile("Easy Recipe", isEasyRecipe, (value) {
+              buildSwitchTile("Easy Recipe", viewModel.isEasyRecipe, (value) {
                 setState(() {
-                  isEasyRecipe = value;
+                  viewModel.isEasyRecipe = value;
+                  viewModel.setPreference("Easy Recipe", value);
                 });
               }),
-              buildSwitchTile("Gourmet Meal", isGourmetMeal, (value) {
+              buildSwitchTile("Gourmet Meal", viewModel.isGourmetMeal, (value) {
                 setState(() {
-                  isGourmetMeal = value;
+                  viewModel.isGourmetMeal = value;
+                  viewModel.setPreference("Gourmet Meal", value);
                 });
               }),
             ]),
@@ -137,9 +137,6 @@ class _FilterPageState extends State<FilterPage> {
       value: value,
       onChanged: onChanged,
       activeColor: AppColors.green,
-      // activeTrackColor: AppColors.green,
-      // inactiveThumbColor: AppColors.verylightGray,
-      // inactiveTrackColor: AppColors.lightGray,
     );
   }
 }
