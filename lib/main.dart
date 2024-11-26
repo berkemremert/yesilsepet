@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:yesilsepet/Views/settingsScreen/accountPage.dart';
 import 'package:yesilsepet/Views/welcomePage/WelcomePage.dart';
 import 'ViewModels/welcomePage/WelcomeViewModel.dart';
 import 'Views/theme/appColors.dart';
@@ -54,7 +55,11 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: DebugPage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => DebugPage(),
+        '/profile': (context) => AccountPage(), // Make sure you have ProfilePage defined
+      },
     );
   }
 }

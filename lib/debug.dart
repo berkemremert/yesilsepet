@@ -89,3 +89,13 @@ class DebugPage extends StatelessWidget {
     );
   }
 }
+
+//Welcoming TODO:
+//overflow
+//create account username, password necessities
+//login username -> email (type as well)
+//login password -> password (type)
+
+//Dashboard TODO:
+//theme match
+//user name connect -> settings
