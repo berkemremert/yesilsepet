@@ -39,6 +39,7 @@ class DashboardPage extends StatelessWidget {
                     surname: userData['surname'] ?? 'No Surname',
                     profilePictureUrl: userData['profilePictureUrl'],
                     score: userData['score'] ?? "200",
+                    pageName: '/profile',
                   );
                 }
               },

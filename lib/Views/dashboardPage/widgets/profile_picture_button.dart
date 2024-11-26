@@ -8,6 +8,7 @@ class ProfilePictureButton extends StatelessWidget {
   final String surname;
   final String? profilePictureUrl;
   final String score;
+  final String pageName; // Page name or route to navigate to
 
   ProfilePictureButton({
     required this.height,
@@ -15,12 +16,16 @@ class ProfilePictureButton extends StatelessWidget {
     required this.surname,
     this.profilePictureUrl,
     required this.score,
+    required this.pageName, // Added this parameter
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        // Navigate to the specified page
+        Navigator.pushNamed(context, pageName);
+      },
       child: Container(
         width: double.infinity,
         height: height,
