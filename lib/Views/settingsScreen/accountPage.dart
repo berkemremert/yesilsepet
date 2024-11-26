@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yesilsepet/Models/user_model.dart';
+import 'package:yesilsepet/services/firebaseService.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
@@ -20,21 +21,29 @@ class _AccountPageState extends State<AccountPage> {
   final TextEditingController phoneController = TextEditingController();
 
   late User user;
+  final FirebaseService _firebaseService = FirebaseService();
 
   @override
   void initState() {
     super.initState();
-    user = User(
-      firstName: "John",
-      lastName: "Doe",
-      email: "john.doe@example.com",
-      phone: "+1234567890",
-    );
+    _loadUserData();
+  }
 
-    nameController.text = user.firstName;
-    surnameController.text = user.lastName;
-    emailController.text = user.email;
-    phoneController.text = user.phone;
+  void _loadUserData() async {
+    final userData = await _firebaseService.getUserProfileData();
+    setState(() {
+      user = User(
+        firstName: userData['name'] ?? 'John',
+        lastName: userData['surname'] ?? 'Doe',
+        email: userData['email'] ?? 'email@mail.com',
+        phone: userData['phoneNumber'] ?? '+1234567890',
+        profilePictureUrl: userData['profilePictureUrl'], // Include profile picture URL
+      );
+      nameController.text = user.firstName;
+      surnameController.text = user.lastName;
+      emailController.text = user.email;
+      phoneController.text = user.phone;
+    });
   }
 
   void _toggleEditable(String field) {
@@ -49,6 +58,19 @@ class _AccountPageState extends State<AccountPage> {
         isPhoneEditable = !isPhoneEditable;
       }
     });
+  }
+
+  Future<void> _saveUserData() async {
+    String? result = await _firebaseService.updateUser(
+      name: nameController.text,
+      surname: surnameController.text,
+      phoneNumber: phoneController.text,
+    );
+    if (result == null) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Profile updated successfully!')));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Error: $result')));
+    }
   }
 
   @override
@@ -66,9 +88,9 @@ class _AccountPageState extends State<AccountPage> {
                   children: [
                     CircleAvatar(
                       radius: 50,
-                      backgroundImage: NetworkImage(
-                        'https://fcb-abj-pre.s3.amazonaws.com/img/jugadors/MESSI.jpg',
-                      ),
+                      backgroundImage: user.profilePictureUrl != null && user.profilePictureUrl!.isNotEmpty
+                          ? NetworkImage(user.profilePictureUrl!)
+                          : AssetImage('assets/default_profile_picture.webp') as ImageProvider,
                     ),
                     SizedBox(height: 10),
                   ],
@@ -138,6 +160,7 @@ class _AccountPageState extends State<AccountPage> {
           onPressed: () {
             if (isEditable) {
               _toggleEditable(field);
+              _saveUserData();
             } else {
               _toggleEditable(field);
             }

@@ -6,6 +6,7 @@ import 'package:yesilsepet/Views/mainPage/main-page.dart';
 import 'package:yesilsepet/Views/settingsScreen/accountPage.dart';
 import 'ViewModels/WelcomePage/WelcomeViewModel.dart';
 import 'ViewModels/mainPage/MainViewModel.dart';
+import 'ViewModels/settingsScreen/accountViewModel.dart';
 import 'Views/welcomePage/WelcomePage.dart';
 import 'package:yesilsepet/Views/settingsScreen/addressPage.dart';
 
@@ -74,15 +75,11 @@ class DebugPage extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => AccountPage(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, '/profile');
                 },
-                child: Text('Go to Account page'),
+                child: const Text('Go to Profile'),
               ),
+
             ],
           )
       ),
@@ -99,3 +96,7 @@ class DebugPage extends StatelessWidget {
 //Dashboard TODO:
 //theme match
 //user name connect -> settings
+
+//Settings TODO:
+//mvvm fix
+//main.dart update

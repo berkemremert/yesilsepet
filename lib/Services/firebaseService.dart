@@ -27,6 +27,7 @@ class FirebaseService {
         'username': username,
         'email': email,
         'phoneNumber': phoneNumber,
+        'password' : password,
         'createdAt': FieldValue.serverTimestamp(),
       });
 
@@ -117,18 +118,24 @@ class FirebaseService {
 
           String name = userData['name'] ?? 'No Name';
           String surname = userData['surname'] ?? 'No Surname';
-          String? profilePictureUrl = userData['profilePictureUrl'];  // This could be null if not set
+          String phoneNumber = userData['phoneNumber'] ?? 'No phone number';
+          String? profilePictureUrl = userData['profilePictureUrl'];
+          String email = userData['email'] ?? 'No Email';
 
           return {
             'name': name,
             'surname': surname,
             'profilePictureUrl': profilePictureUrl,
+            'email': email,
+            'phoneNumber': phoneNumber,
           };
         } else {
           return {
             'name': 'No Name',
             'surname': 'No Surname',
             'profilePictureUrl': null,
+            'email': 'email@mail.com',
+            'phoneNumber': '+123456789',
           };
         }
       } catch (e) {
@@ -137,6 +144,7 @@ class FirebaseService {
           'name': 'No Name',
           'surname': 'No Surname',
           'profilePictureUrl': null,
+          'email': currentUser.email ?? 'No Email',
         };
       }
     } else {
@@ -144,6 +152,7 @@ class FirebaseService {
         'name': 'No Name',
         'surname': 'No Surname',
         'profilePictureUrl': null,
+        'email': 'No Email',
       };
     }
   }
