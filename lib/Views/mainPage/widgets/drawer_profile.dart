@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../settingsScreen/addressPage.dart';
 import '../../theme/appColors.dart';
 
 class DrawerProfile extends StatefulWidget {
@@ -42,7 +43,10 @@ class _DrawerProfileState extends State<DrawerProfile> {
                     ),
                   ),
                   SizedBox(height: 10,),
-                  Text("Berk Emre Mert"),
+                  Text(
+                      "Berk Emre Mert",
+                    style: TextStyle(color: AppColors.pureWhite),
+                  ),
                 ],
               ),
             ),
@@ -64,7 +68,12 @@ class _DrawerProfileState extends State<DrawerProfile> {
               leading: Icon(Icons.location_pin),
               title: Text('My Address'),
               onTap: () {
-                // TODO: Add profile navigation here
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddressPage(),
+                  ),
+                );
               },
             ),
             ListTile(

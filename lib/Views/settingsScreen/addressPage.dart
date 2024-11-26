@@ -13,16 +13,15 @@ class AddressPage extends StatefulWidget {
 
 class _AddressPageState extends State<AddressPage> {
   bool isDefault = true;
-  bool isCollapsed = false; // Flag to control collapsed/expanded state
+  bool isCollapsed = false;
 
   void _createAccount() {
     print("Account created!");
   }
 
-  // Function to toggle the collapse state when the header is tapped
   void _toggleCollapse() {
     setState(() {
-      isCollapsed = !isCollapsed; // Toggle collapse state
+      isCollapsed = !isCollapsed;
     });
   }
 
@@ -39,7 +38,7 @@ class _AddressPageState extends State<AddressPage> {
               color: Colors.white,
               borderRadius: BorderRadius.circular(0.0),
               border: Border.all(
-                color: Colors.grey[300]!, // Border color
+                color: Colors.grey[300]!,
                 width: 1.0,
               ),
               boxShadow: [
@@ -56,10 +55,9 @@ class _AddressPageState extends State<AddressPage> {
               children: [
                 if (isDefault) DefaultLabelWidget(),
                 SizedBox(height: 8,),
-                // Wrap the header in GestureDetector to toggle collapse when clicked
                 GestureDetector(
                   onTap: _toggleCollapse, // Toggle collapse state on tap
-                  child: HeaderInfoWidget(), // This is the clickable header
+                  child: HeaderInfoWidget(isCollapsed: isCollapsed), // This is the clickable header
                 ),
                 const SizedBox(height: 10),
 
