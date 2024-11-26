@@ -73,19 +73,6 @@ class DashboardPage extends StatelessWidget {
             SearchBarWidget(
               onSearchChanged: (String) {},
             ),
-            SizedBox(height: 16.0),
-            SizedBox(
-              height: 400,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: recipes.length,
-                itemBuilder: (context, index) {
-                  return RecipeCard(
-                    recipe: recipes[index],
-                  );
-                },
-              ),
-            ),
           ],
         ),
       ),
