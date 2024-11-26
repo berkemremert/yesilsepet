@@ -1,5 +1,9 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yesilsepet/ViewModels/createRecipe/CreateRecipeViewModel.dart';
+import 'package:yesilsepet/Views/createRecipePage/filterPage.dart';
+import 'package:yesilsepet/Views/createRecipePage/ingredientsPage.dart';
 
 import '../../theme/appColors.dart';
 
@@ -13,7 +17,17 @@ class CreateRecipeButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ChangeNotifierProvider(
+              create: (_) => CreateRecipeViewModel(),
+              child: IngredientsPage(),
+            ),
+          ),
+        );
+      },
       child: Container(
         width: double.infinity,
         height: height,
@@ -63,7 +77,7 @@ class CreateRecipeButton extends StatelessWidget {
                   ),
                 ),
               ),
-              // Padding and Text Content
+
               Padding(
                 padding: const EdgeInsets.all(10),
                 child: Column(
