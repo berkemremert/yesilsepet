@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:yesilsepet/Models/recipe_model.dart';
+import 'package:yesilsepet/Services/geminiService.dart';
 import 'package:yesilsepet/current_recipe.dart';
 
 class CreateRecipeViewModel extends ChangeNotifier {
@@ -8,7 +9,6 @@ class CreateRecipeViewModel extends ChangeNotifier {
   int currentStep = 0;
   final PageController pageController = PageController();
 
-  // Preferences
   bool isVegan = false;
   bool isVegetarian = false;
   bool isHalal = false;
@@ -19,7 +19,6 @@ class CreateRecipeViewModel extends ChangeNotifier {
   bool isEasyRecipe = false;
   bool isGourmetMeal = false;
 
-  // Ingredient management
   List<String> getMalzemeler() => malzemeler;
 
   void addMalzeme(String newMalzeme) {
@@ -36,7 +35,6 @@ class CreateRecipeViewModel extends ChangeNotifier {
     CurrentRecipe().setIngredients(malzemeler);
   }
 
-  // Preferences management
   void setPreference(String preference, bool value) {
     switch (preference) {
       case "Vegan":
@@ -86,16 +84,17 @@ class CreateRecipeViewModel extends ChangeNotifier {
     });
   }
 
-  // Step management
   void nextStep() {
     if (currentStep == 0) {
       refreshMalzemeInfo();
-      // print(CurrentRecipe().ingredients);
+      print(CurrentRecipe().ingredients);
     }
     if (currentStep == 1) {
       refreshPreferences();
       // print(CurrentRecipe().preferences);
       print(CurrentRecipe().toString());
+      // print(giveGeminiData());
+      // var recipe = giveGeminiData();
     }
     if (currentStep < 2) {
       currentStep++;
@@ -118,7 +117,10 @@ class CreateRecipeViewModel extends ChangeNotifier {
     }
   }
 
-  // Recipes
+  Future<String> getNewRecipe(){
+    return giveGeminiData();
+  }
+
   List<RecipeModel> getRecipes() {
     return [
       RecipeModel(
