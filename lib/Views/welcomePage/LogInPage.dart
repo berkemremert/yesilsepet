@@ -1,11 +1,12 @@
 import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yesilsepet/ViewModels/welcomePage/LoginPageViewModel.dart';
+import 'package:yesilsepet/Views/theme/appColors.dart';
 import 'package:yesilsepet/Views/welcomePage/widgets/gradient_text_field.dart';
 import 'package:yesilsepet/Views/welcomePage/widgets/login_button.dart';
 import 'package:yesilsepet/Views/welcomePage/widgets/login_header.dart';
-import 'package:yesilsepet/Views/theme/appColors.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -13,6 +14,10 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<LoginPageViewModel>(context);
+
+    // Controllers for the text fields
+    final usernameController = TextEditingController();
+    final passwordController = TextEditingController();
 
     return Scaffold(
       body: Stack(
@@ -51,12 +56,25 @@ class LoginPage extends StatelessWidget {
                     children: [
                       LoginHeader(),
                       const SizedBox(height: 24),
-                      GradientTextField(label: 'Username'),
+                      GradientTextField(
+                        label: 'Username',
+                        controller: usernameController,
+                      ),
                       const SizedBox(height: 16),
-                      GradientTextField(label: 'Password'),
+                      GradientTextField(
+                        label: 'Password',
+                        controller: passwordController,
+                        keyboardType: TextInputType.text,
+                      ),
                       const SizedBox(height: 32),
                       LoginButton(
-                        onPressed: viewModel.login,
+                        onPressed: () {
+                          // Call login method from viewModel
+                          viewModel.login(
+                            username: usernameController.text,
+                            password: passwordController.text,
+                          );
+                        },
                       ),
                     ],
                   ),
