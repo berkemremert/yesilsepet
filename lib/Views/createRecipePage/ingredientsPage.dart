@@ -37,25 +37,27 @@ class IngredientsPage extends StatelessWidget {
                 ),
                 Positioned.fill(
                   top: 30,
-                  child: Column(
-                    children: [
-                      MainHeaderElements(openDrawer: openDrawer),
-                      SizedBox(height: 30),
-                      ProgressBarSection(currentStep: viewModel.currentStep),
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.7,
-                        child: PageView(
-                          controller: viewModel.pageController,
-                          physics: const NeverScrollableScrollPhysics(),
-                          children: [
-                            FirstPage(),
-                            SecondPage(),
-                            LastPage(recipes),
-                          ],
+                  child: SingleChildScrollView( // Added to enable scrolling when needed
+                    child: Column(
+                      children: [
+                        MainHeaderElements(openDrawer: openDrawer),
+                        SizedBox(height: 30),
+                        ProgressBarSection(currentStep: viewModel.currentStep),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.7,
+                          child: PageView(
+                            controller: viewModel.pageController,
+                            physics: const NeverScrollableScrollPhysics(),
+                            children: [
+                              FirstPage(),
+                              SecondPage(),
+                              LastPage(recipes),
+                            ],
+                          ),
                         ),
-                      ),
-                      ProgressButtons(viewModel),
-                    ],
+                        ProgressButtons(viewModel),
+                      ],
+                    ),
                   ),
                 ),
               ],
