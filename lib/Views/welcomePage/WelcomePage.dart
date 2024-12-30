@@ -71,7 +71,7 @@ class WelcomePage extends StatelessWidget {
             bottom: 100,
             child: Center(
               child: Text(
-                'Yeşil Sepet',
+                'Suup',
                 style: TextStyle(
                   fontSize: 36,
                   fontWeight: FontWeight.bold,
@@ -80,7 +80,7 @@ class WelcomePage extends StatelessWidget {
                     Shadow(
                       blurRadius: 10,
                       color: Colors.black.withOpacity(0.5),
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),

@@ -20,7 +20,7 @@ class DebugPage extends StatelessWidget {
       body: Center(
           child: Column(
             children: [
-              ElevatedButton(
+              ElevatedButton( // Welcome Page
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -34,7 +34,7 @@ class DebugPage extends StatelessWidget {
                 },
                 child: Text('Go to Welcome Page'),
               ),
-              ElevatedButton(
+              ElevatedButton( // Home Page
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -48,7 +48,7 @@ class DebugPage extends StatelessWidget {
                 },
                 child: Text('Go to Home Page'),
               ),
-              ElevatedButton(
+              ElevatedButton( // Dashboard Page
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -62,7 +62,7 @@ class DebugPage extends StatelessWidget {
                 },
                 child: Text('Go to Dashboard page'),
               ),
-              ElevatedButton(
+              ElevatedButton( // Address Page
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -73,7 +73,7 @@ class DebugPage extends StatelessWidget {
                 },
                 child: Text('Go to Address page'),
               ),
-              ElevatedButton(
+              ElevatedButton( // Profile Page
                 onPressed: () {
                   Navigator.pushNamed(context, '/profile');
                 },
