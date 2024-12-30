@@ -6,13 +6,11 @@ import 'package:yesilsepet/Views/theme/appColors.dart';
 
 class TarifCard extends StatelessWidget {
   final String title;
-  final String description;
   final bool isHealthy;
   final bool isExpensive;
 
   TarifCard({
     required this.title,
-    required this.description,
     required this.isHealthy,
     required this.isExpensive,
   });

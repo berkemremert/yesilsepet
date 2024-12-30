@@ -28,7 +28,6 @@ class IngredientsPage extends StatelessWidget {
       child: Consumer<CreateRecipeViewModel>(
         builder: (context, viewModel, child) {
           return Scaffold(
-            backgroundColor: AppColors.offWhite,
             body: Stack(
               children: [
                 const MainHeaderWave(

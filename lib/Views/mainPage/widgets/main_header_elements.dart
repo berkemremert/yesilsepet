@@ -14,7 +14,7 @@ class MainHeaderElements extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const Text(
-            'Yeşil Tarif',
+            'Suup',
             style: TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,

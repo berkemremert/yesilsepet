@@ -28,7 +28,6 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      backgroundColor: AppColors.offWhite,
       drawer: const DrawerProfile(),
       body: Stack(
         children: [
@@ -58,7 +57,7 @@ class _MainPageState extends State<MainPage> {
                     itemBuilder: (context, index) {
                       return TarifCard(
                         title: 'Gourmet Plant-Based Tarif ${index + 1}',
-                        description: 'This gourmet tarif is a luxurious combination of plant-based ingredients, offering a refined taste experience. Ideal for those looking to indulge in a sophisticated yet healthy dish.',
+                        // description: 'This gourmet tarif is a luxurious combination of plant-based ingredients, offering a refined taste experience. Ideal for those looking to indulge in a sophisticated yet healthy dish.',
                         isHealthy: true,
                         isExpensive: true,
                       );
